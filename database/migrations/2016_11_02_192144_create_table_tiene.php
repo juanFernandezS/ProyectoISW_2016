@@ -12,7 +12,7 @@ class CreateTableTiene extends Migration
      */
     public function up()
     {
-        Schema::create('tiene', function (Blueprint $table) {
+        Schema::create('ingrediente_pedido', function (Blueprint $table) {
             $table->integer('id_pedido');
             $table->integer('id_ing');
             $table->foreign('id_pedido')->references('id')->on('pedidos');
