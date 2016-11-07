@@ -13,6 +13,7 @@ class CreateTablePedidoIngrediente extends Migration
     public function up()
     {
         Schema::create('pedido_ingrediente', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('id_pedido');
             $table->integer('id_ing');
             $table->foreign('id_pedido')->references('id')->on('pedidos');
