@@ -17,5 +17,5 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'clientes'], function(){
 
-    Route::get('view'/)
+    Route::resource('view','ClienteController');
 });
