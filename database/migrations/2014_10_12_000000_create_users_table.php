@@ -15,16 +15,15 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('rut');
-            $table->integer('id_estado')->unsigned();
-            $table->integer('id_tipo')->unsigned();
             $table->string('nombre');
             $table->integer('telefono');
             $table->string('correo')->unique();
             $table->string('direccion');
-            $table->foreign('id_estado')->references('id')->on('estados');
-            $table->foreign('id_tipo')->references('id')->on('tipos_de_usuarios');
-
+            $table->enum('tipo_de_usuario',['administrador','cajero','repartidor']);
+            $table->enum('estado',['vigente','no vigente']);
             $table->string('password');
+
+
             $table->rememberToken();
             $table->timestamps();
         });
