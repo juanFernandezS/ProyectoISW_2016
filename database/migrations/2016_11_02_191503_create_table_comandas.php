@@ -14,11 +14,10 @@ class CreateTableComandas extends Migration
     {
         Schema::create('comandas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_estado');
             $table->integer('telefono');
             $table->text('descripcion');
             $table->date('fecha');
-            $table->foreign('id_estado')->references('id')->on('estados');
+
 
             $table->timestamps();
         });
