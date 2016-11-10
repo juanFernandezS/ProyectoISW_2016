@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'admg'], function (){
+
+    Route::resource('coberturas','CoberturasController');
+
+});
