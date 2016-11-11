@@ -1,6 +1,6 @@
 @extends('admin.template.main')
 
-@section('titulo','agregar ingrediente')
+@section('titulo','Crear')
 
 @section('content')
     {!! Form::open(['route' => 'admin.ingrediente.store','method' =>'POST']) !!}
@@ -16,4 +16,5 @@
     {!! Form::close() !!}
 
 @endsection
+
 
