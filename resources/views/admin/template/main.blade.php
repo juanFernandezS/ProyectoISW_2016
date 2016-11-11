@@ -11,11 +11,11 @@
 @include('admin.template.partes.menu')
     <section>
         <div class="panel panel-primary">
-            <div class="panel-heading">Crear Usuario</div>
+            <div class="panel-heading"></div>
             <div class="panel-body">@yield('content')
             </div>
         </div>
-       <div class="container"> @yield('content')</div>
+
 
         </section>
 
