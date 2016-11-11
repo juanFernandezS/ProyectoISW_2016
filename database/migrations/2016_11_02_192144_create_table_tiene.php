@@ -28,6 +28,6 @@ class CreateTableTiene extends Migration
      */
     public function down()
     {
-        Schema::drop('tiene');
+        Schema::drop('ingrediente_pedido');
     }
 }

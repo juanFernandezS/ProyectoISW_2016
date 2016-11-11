@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests;
+use Laracasts\Flash\Flash;
 
 
 class UsersController extends Controller
@@ -14,7 +15,17 @@ class UsersController extends Controller
         return view('admin.users.index')->with('users', $users);
     }
     public function create(){
-     return view('admin.users.create');
+
+             return view('admin.users.create');
+        $validacion = Validator::make($input,$rules);
+        if($validacion->fails()){
+            Flash::warning('El usuario '. $users->nombre. ' a sido editado con exito!');
+            return redirect()->to('admin.users.create\'')->withInput()->withErrors($validacion->messages());
+        }
+
+
+
+
     }
     public function store(Request $requests){
 /* */
@@ -42,6 +53,7 @@ class UsersController extends Controller
        // $user->estado=$requests->estado;
 
         $user->save();
+        Flash::success('El usuario '. $user->nombre .' se a ingresado con exito');
       
         return redirect()->route('admin.users.index');
     }
@@ -60,6 +72,15 @@ class UsersController extends Controller
         return view('admin.users.edit')->with('user', $user);
     }
     public function update(Requests $requests, $id){
+
+        $aux= Ingrediente::all();
+
+        foreach ( $aux as $user){
+            if($user->nombre == $request->nombre){
+                Flash::error('El nombre ya existe!');
+                return redirect('/admin/users/'.$id.'/edit');
+            }
+        }
 
         $this->validate($requests,[
             'rut' => 'required | unique:users,rut',
