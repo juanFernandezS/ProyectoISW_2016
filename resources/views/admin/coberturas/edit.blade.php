@@ -1,6 +1,6 @@
 @extends('admin.template.main')
 
-@section('titulo', 'editar coberturas'. $cobertura->name)
+@section('Coberturas', 'editar coberturas'. $cobertura->name)
 
 @section('content')
     {!! Form::open(['route' => ['admin.coberturas.update', $cobertura], 'method' => 'PUT']) !!}

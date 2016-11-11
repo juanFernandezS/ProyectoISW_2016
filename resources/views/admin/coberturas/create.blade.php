@@ -1,6 +1,6 @@
 @extends('admin.template.main')
 
-@section('titulo', 'agregar coberturas')
+@section('Coberturas', 'agregar coberturas')
 
 @section('content')
     {!! Form::open(['route' => 'admin.coberturas.store', 'method' => 'POST']) !!}
