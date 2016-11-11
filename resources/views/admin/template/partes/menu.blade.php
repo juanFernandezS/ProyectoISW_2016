@@ -20,7 +20,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="{{route('admin.users.index')}}">Usuario</a></li>
                         <li><a href="{{route('admin.ingrediente.index')}}">Ingredientes</a></li>
-                        <li><a href="#">Coberturas</a></li>
+                        <li><a href="{{ route('admin.coberturas.index') }}">Coberturas</a></li>
                         <li><a href="#">Clientes</a></li>
 
                     </ul>

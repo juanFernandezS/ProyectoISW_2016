@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Cobertura;
+use Laracasts\Flash\Flash;
 
 class CoberturasController extends Controller
 {
@@ -40,8 +41,18 @@ class CoberturasController extends Controller
      */
     public function store(Request $request)
     {
+        $this-> validate( $request, [
+            'nombre'=> 'required|unique:coberturas,nombre',
+            'precio'=> 'required|min:2000|max:20000|numeric'
+        ]);
+
         $cobertura = new Cobertura($request->all());
+        $cobertura->nombre=$request->nombre;
+        $cobertura->precio=$request->precio;
         $cobertura->save();
+
+        Flash::success('La cobertura '. $cobertura->nombre .' se a ingresado con exito');
+
 
         return redirect('admin/coberturas');
     }
@@ -65,7 +76,8 @@ class CoberturasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cobertura= Cobertura::find($id);
+        return view('admin.coberturas.edit')->with('cobertura', $cobertura);
     }
 
     /**
@@ -77,7 +89,30 @@ class CoberturasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $aux= Cobertura::all();
+
+        foreach ( $aux as $coberturas){
+            if($coberturas->nombre == $request->nombre){
+                Flash::error('El nombre ya existe!');
+                return redirect('/admin/coberturas/'.$id.'/edit');
+            }
+        }
+
+        $this-> validate( $request, [
+            'nombre'=> 'required|unique:coberturas,nombre',
+            'precio'=> 'required|min:2000|max:20000|numeric'
+        ]);
+
+        $cobertura = new Cobertura($request->all());
+        $cobertura->nombre=$request->nombre;
+        $cobertura->precio=$request->precio;
+
+        $cobertura = Cobertura::find($id);
+        $cobertura->fill($request->all());
+        $cobertura->save();
+        Flash::warning('La cobertura '. $cobertura->nombre. ' a sido editada con exito!');
+
+        return redirect()->route('admin.coberturas.index');
     }
 
     /**
@@ -88,6 +123,11 @@ class CoberturasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cobertura= Cobertura::find($id);
+        $cobertura->delete();
+
+        Flash::error('La cobertura ha sido borrada!');
+
+        return redirect()->route('admin.coberturas.index');
     }
 }

@@ -15,6 +15,11 @@ Route::group(['prefix' => 'admin'],function(){
 
     Route::resource('coberturas','CoberturasController');
 
+    Route::get('cobertura/{id}/destroy',[
+        'uses' => 'CoberturasController@destroy',
+        'as' => 'admin.coberturas.destroy'
+    ]);
+
     Route::resource('users','UsersController');
 
     Route::get('user/{id}/destroy',[
