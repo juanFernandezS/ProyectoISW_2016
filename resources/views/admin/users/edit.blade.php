@@ -5,7 +5,16 @@
 @section('content')
 
     {!! Form::model($user,['route' =>  ['admin.users.update', $user],  'method' => 'PUT']) !!}
-
+    @if($errors->has())
+        <div class="alert alert-danger">
+            <ul>
+                <strong>Whoops!</strong> Hubo problemas con tus entradas.
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="form-group">
 
         {!! Form::label('rut','Rut') !!}

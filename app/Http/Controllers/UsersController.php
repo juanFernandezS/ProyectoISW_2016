@@ -18,6 +18,16 @@ class UsersController extends Controller
     }
     public function store(Request $requests){
 /* */
+        $this->validate($requests,[
+            'rut' => 'required | unique:users,rut',
+            'nombre' => 'required | alpha' ,
+            'telefono' =>'required | unique:users,telefono',
+            'correo' => 'required | unique:users,correo',
+            'direccion' => 'required',
+            'tipos_de_usuarios' => 'required | in:administrador,cajero,repartidor',
+            'estado' => 'required | in:vigente,no vigente',
+            'password' => 'required'
+        ]);
 
         $user = new User($requests->all());
         $user->rut=$requests->rut;
@@ -50,6 +60,19 @@ class UsersController extends Controller
         return view('admin.users.edit')->with('user', $user);
     }
     public function update(Requests $requests, $id){
+
+        $this->validate($requests,[
+            'rut' => 'required | unique:users,rut',
+            'nombre' => 'required | alpha' ,
+            'telefono' =>'required | unique:users,telefono',
+            'correo' => 'required | unique:users,correo',
+            'direccion' => 'required',
+            'tipo_de_usuario' => 'required | in:administrador,cajero,repartidor',
+            'estado' => 'required | in: vigente, no vigente',
+            'password' => 'required'
+        ]);
+
+
         $user= User::find($id);
         $user->rut=$requests->rut;
         $user->nombre=$requests->nombre;
