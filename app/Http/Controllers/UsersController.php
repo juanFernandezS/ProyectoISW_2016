@@ -25,7 +25,7 @@ class UsersController extends Controller
         $user->telefono=$requests->telefono;
         $user->correo=$requests->correo;
         $user->direccion=$requests->direccion;
-        $user->tipo_de_usuario=$requests->tipo_de_usuario;
+        $user->tipo_de_usuario=$requests->tipos_de_usuarios;
         $user->estado=$requests->estado;
         $user->password =bcrypt($requests->password);
       //  $user->tipo_de_usuario = $requests->tipos_de_usuarios;
@@ -50,14 +50,13 @@ class UsersController extends Controller
         return view('admin.users.edit')->with('user', $user);
     }
     public function update(Requests $requests, $id){
-
         $user= User::find($id);
         $user->rut=$requests->rut;
         $user->nombre=$requests->nombre;
         $user->telefono=$requests->telefono;
         $user->correo=$requests->correo;
         $user->direccion=$requests->direccion;
-        $user->tipo_de_usuario=$requests->tipo_de_usuario;
+        $user->tipo_de_usuario=$requests->tipos_de_usuarios;
         $user->estado=$requests->estado;
 
         $user->save();

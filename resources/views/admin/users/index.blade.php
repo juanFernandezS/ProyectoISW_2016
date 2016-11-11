@@ -12,7 +12,7 @@
         <th>Telefono</th>
         <th>Correo</th>
         <th>Direccion</th>
-        <th>Tipo_de_usuario</th>
+        <th>Tipo de usuario</th>
         <th>Estado</th>
         <th>Accion</th>
 
@@ -48,8 +48,8 @@
                 </td>
                 <td>{!! $user->estado !!}</td>
                 <td>{!! $user->accion !!}</td>
-                <td><a href="{{route('admin.users.edit', $user->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"><span></a>
-                <td><a href="{{route('admin.users.destroy', $user->id)}}"  class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"><span></a>
+                <td><a href="{{route('admin.users.edit', $user->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+                <td><a href="{{route('admin.users.destroy', $user->id)}}"  class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
 
             </tr>
         @endforeach
