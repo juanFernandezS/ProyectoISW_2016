@@ -16,10 +16,10 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('rut');
             $table->string('nombre');
-            $table->integer('telefono');
+            $table->string('telefono');
             $table->string('correo')->unique();
             $table->string('direccion');
-            $table->enum('tipo_de_usuario',['administrador','cajero','repartidor']);
+            $table->enum('tipo_de_usuario',['administrador','cajero','repartidor'])->defaul('cajero','repartidor');
             $table->enum('estado',['vigente','no vigente']);
             $table->string('password');
 
