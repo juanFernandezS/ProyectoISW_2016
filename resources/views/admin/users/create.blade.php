@@ -6,6 +6,18 @@
 
   {!! Form::open(['route' =>  'admin.users.store',  'method' => 'POST']) !!}
     <div>      {!! Form::label('nombre','Crear Usuario') !!}</div><hr>
+
+  @if($errors->has())
+      <div class="alert alert-danger">
+          <ul>
+              <strong>Whoops!</strong> Hubo problemas con tus entradas.
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+  @endif
+
   <div class="form-group">
 
       {!! Form::label('rut','Rut') !!}
