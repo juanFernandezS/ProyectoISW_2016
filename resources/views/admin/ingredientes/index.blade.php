@@ -1,5 +1,5 @@
 @extends('admin.template.main')
-@section('titulo','lista de ingredientes')
+@section('titulo','Lista ')
 @section('content')
 
         <a href="{{route('admin.ingrediente.create')}}" class="btn btn-info"> Resistar nuevo ingrediente</a><hr>
@@ -10,6 +10,9 @@
                 <th>Accion</th>
             </thead>
            <tbody>
+           <div>
+            {!! Form::label('nombre','Listado de ingredientes') !!}
+            </div><hr>
                 @foreach($ingredientes as $ingrediente)
                     <tr>
                         <td>{!! $ingrediente->id !!}</td>
