@@ -31,7 +31,7 @@ class UsersController extends Controller
 /* */
         $this->validate($requests,[
             'rut' => 'required | unique:users,rut',
-            'nombre' => 'required | alpha' ,
+            'nombre' => 'required | max:40' ,
             'telefono' =>'required | unique:users,telefono',
             'correo' => 'required | unique:users,correo',
             'direccion' => 'required',
@@ -73,7 +73,7 @@ class UsersController extends Controller
     }
     public function update(Requests $requests, $id){
 
-        $aux= Ingrediente::all();
+        $aux= Users::all();
 
         foreach ( $aux as $user){
             if($user->nombre == $request->nombre){
