@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>@yield('titulo','')|Ingrediente  </title>
+    <title>@yield('titulo','')  </title>
     <link rel="stylesheet" href="{{asset('plugins/bootstrap/css/bootstrap.css')}}">
 </head>
 <body>
