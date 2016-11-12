@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Cliente;
+use Laracasts\Flash\Flash;
 
 class ClienteController extends Controller
 {
@@ -18,6 +19,7 @@ class ClienteController extends Controller
     {
         $cliente = Cliente::orderBy('id','ASC')->paginate(5);
         return view ('commonusers.index')->with('cliente',$cliente);
+
     }
 
     /**
@@ -43,6 +45,8 @@ class ClienteController extends Controller
 
         $cliente -> save();
 
+        Flash::success('Success');
+        return redirect()->route('commonusers.clientes.index');
 
     }
 
@@ -88,6 +92,11 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cliente = Cliente::find($id);
+        $cliente->delete();
+
+        //Flash::danger('Erase Success');
+        Flash::success('Success');
+        return redirect()->route('commonusers.clientes.index');
     }
 }

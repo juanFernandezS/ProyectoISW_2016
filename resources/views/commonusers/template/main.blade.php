@@ -15,7 +15,7 @@
 
 <section>
     <div class="container">
-
+        @include('flash::message')
         <div class="panel panel-primary">
             <div class="panel-heading">@yield('titlepanel','Default')</div>
             <div class="panel-body">@yield('cliente-form')
@@ -26,11 +26,14 @@
 </section>
 
 <section>
+
     <div class="container">
 
         <div class="panel panel-default">
             <div class="panel-heading">Pedido</div>
+
             <div class="panel-body">@yield('content2')
+
             </div>
         </div>
 

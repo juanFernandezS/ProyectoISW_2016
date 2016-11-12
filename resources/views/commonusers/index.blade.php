@@ -30,7 +30,17 @@
                          Concepcion
                         @endif
                 </td>
-                <td><a href="" class="btn btn-danger"> <a href="" class="btn btn-warning"></a></a></td>
+                <td>
+                    <a href="" class="btn btn-danger">
+                        <span class=" glyphicon glyphicon-edit"></span>
+                    </a>
+                    <a href="{{route('commonusers.clientes.destroy',$item->id)}}"
+                       onclick="return confirm('Seguro?')"
+                       class="btn btn-warning">
+
+                        <span class="glyphicon glyphicon-remove-sign"></span>
+                    </a>
+                </td>
             </tr>
             @endforeach
         </tbody>
