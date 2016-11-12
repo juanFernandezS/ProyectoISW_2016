@@ -15,7 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'clientes'], function(){
+Route::group(['prefix' => 'commonusers'], function(){
 
-    Route::resource('view','ClienteController');
+    Route::resource('clientes','ClienteController');
+
 });

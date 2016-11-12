@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Cliente;
 
 class ClienteController extends Controller
 {
@@ -15,7 +16,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //test
+        $cliente = Cliente::orderBy('id','ASC')->paginate(5);
+        return view ('commonusers.index')->with('cliente',$cliente);
     }
 
     /**
@@ -25,7 +27,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('commonusers.create');
     }
 
     /**
@@ -36,7 +38,12 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $cliente = new Cliente($request->all());
+
+        $cliente -> save();
+
+
     }
 
     /**
