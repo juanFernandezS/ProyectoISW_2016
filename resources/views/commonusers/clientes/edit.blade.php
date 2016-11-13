@@ -8,7 +8,16 @@
 
 @section('cliente-form')
 
-
+    @if($errors->has())
+        <div class="alert alert-danger">
+            <ul>
+                <strong>Whoops!</strong> Hubo problemas con tus entradas.
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
 
     {!!Form::model($cliente,['route' => ['commonusers.clientes.update',$cliente] , 'method' => 'PUT']) !!}
