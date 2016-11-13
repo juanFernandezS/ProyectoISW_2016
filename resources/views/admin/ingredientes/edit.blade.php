@@ -24,7 +24,10 @@
 
     {!! Form::submit('Editar',['class' => 'btn btn-primary'])!!}
 
+
     {!! Form::close() !!}
+        <a href="{{route('admin.ingrediente.index') }} " class="btn btn-primary" role="button">Cancelar</a>
+
 
 @endsection
 

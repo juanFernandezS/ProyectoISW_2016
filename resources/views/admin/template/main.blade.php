@@ -8,17 +8,22 @@
 </head>
 <body>
 
+
+
 @include('admin.template.partes.menu')
     <section>
-        @include('flash::message')
-        <div class="panel panel-primary">
-            <div class="panel-heading"></div>
-            <div class="panel-body">@yield('content')
+        <div class="container">
+            @include('flash::message')
+             <div class="panel panel-primary">
+                 <div class="panel-heading"></div>
+                 <div class="panel-body">@yield('content')
+                </div>
             </div>
         </div>
 
 
-        </section>
+
+    </section>
 
 <script src="{{ asset('plugins/jquery/js/jquery-3.1.1.js')}}"></script>
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.js')}}"></script>

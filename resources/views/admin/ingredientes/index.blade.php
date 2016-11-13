@@ -11,6 +11,7 @@
             </thead>
            <tbody>
            <div>
+
             {!! Form::label('nombre','Listado de ingredientes') !!}
             </div><hr>
                 @foreach($ingredientes as $ingrediente)

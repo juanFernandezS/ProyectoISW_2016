@@ -23,6 +23,8 @@
     <div class="form-group">
 
         {!! Form::submit('registrar',['class' => 'btn btn-primary'])!!}
+        <a href="{{route('admin.ingrediente.index') }} " class="btn btn-primary" role="button">Cancelar</a>
+
 
 
     {!! Form::close() !!}

@@ -8,36 +8,26 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Santoku-Sushi</a>
-            <a class="navbar-brand" href="{{route('admin.users.index')}}">Usuario</a>
-            <a class="navbar-brand" href="{{route('admin.ingrediente.index')}}">Ingrediente</a>
-            <a class="navbar-brand" href="{{route('admin.coberturas.index')}}">Cobertura</a>
-
+            <a class="navbar-brand" href="#"><img src="sushilogosmall.png"></a>
         </div>
-
-
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-
-                <li class="dropdown">
-
-                    <ul class="dropdown-menu">
-                        <li><a href="{{route('admin.users.index')}}">Usuario</a></li>
-                        <li><a href="{{route('admin.ingrediente.index')}}">Ingredientes</a></li>
-                        <li><a href="{{ route('admin.coberturas.index') }}">Coberturas</a></li>
-                        <li><a href="#">Clientes</a></li>
-
-                    </ul>
-                </li>
+                <li class="active"><a href="#">Clientes <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Pedidos</a></li>
             </ul>
-            <form class="navbar-form navbar-left">
-              </form>
-            <ul class="nav navbar-nav navbar-right">
 
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
                         <li role="separator" class="divider"></li>
-                <a class="navbar-brand" href="#">Cerrar Sesion</a>
+                        <li><a href="#">Cerrar Sesion</a></li>
                     </ul>
                 </li>
             </ul>
