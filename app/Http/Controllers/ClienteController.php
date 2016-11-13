@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Cliente;
 use Laracasts\Flash\Flash;
+use Symfony\Component\HttpKernel\Client;
 
 class ClienteController extends Controller
 {
@@ -69,7 +70,11 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cliente = Cliente::find($id);
+
+        //dd($id);
+        return view ('commonusers.clientes.edit')->with('cliente',$cliente);
+
     }
 
     /**
@@ -96,7 +101,7 @@ class ClienteController extends Controller
         $cliente->delete();
 
         //Flash::danger('Erase Success');
-        Flash::success('Success');
+        Flash::error('Success');
         return redirect()->route('commonusers.clientes.index');
     }
 }

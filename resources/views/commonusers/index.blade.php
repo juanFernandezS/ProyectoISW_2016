@@ -31,7 +31,8 @@
                         @endif
                 </td>
                 <td>
-                    <a href="" class="btn btn-danger">
+                    <a href="{{route('commonusers.clientes.edit',$item->id)}}"
+                       class="btn btn-danger">
                         <span class=" glyphicon glyphicon-edit"></span>
                     </a>
                     <a href="{{route('commonusers.clientes.destroy',$item->id)}}"

@@ -7,10 +7,16 @@ Route::get('/', function () {
 Route::group(['prefix' => 'commonusers'], function(){
 
     Route::resource('clientes','ClienteController');
+    
     Route::get('clientes/{id}/destroy',[
         'uses'  => 'ClienteController@destroy',
         'as'    => 'commonusers.clientes.destroy'
     ]);
+    /*Route::get('clientes/{id}/edit',[
+        'uses'  => 'ClienteController@edit',
+        'as'    => 'commonusers.clientes.edit'
+    ]);
+   */
 });
 
 Route::group(['prefix' => 'admin'],function(){
