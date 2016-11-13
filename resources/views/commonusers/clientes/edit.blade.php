@@ -4,7 +4,12 @@
 
 @section('titlepanel','Editar Cliente: '.$cliente->nombre)
 
+
+
 @section('cliente-form')
+
+
+
 
     {!!Form::model($cliente,['route' => ['commonusers.clientes.update',$cliente] , 'method' => 'PUT']) !!}
 
