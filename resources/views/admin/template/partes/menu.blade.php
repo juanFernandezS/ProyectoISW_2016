@@ -27,7 +27,8 @@
                         <li><a href="{{route('admin.users.index')}}">Usuario</a></li>
                         <li><a href="{{route('admin.ingrediente.index')}}">Ingredientes</a></li>
                         <li><a href="{{ route('admin.coberturas.index') }}">Coberturas</a></li>
-                        <li><a href="#">Clientes</a></li>
+                        <li><a href="#">Comandas</a></li>
+
 
                     </ul>
                 </li>

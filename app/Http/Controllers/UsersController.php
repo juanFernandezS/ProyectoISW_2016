@@ -78,7 +78,7 @@ class UsersController extends Controller
 
         foreach ( $aux as $user){
             if($user->nombre == $request->nombre){
-                Flash::error('El nombre ya existe!');
+                Flash::error('El nombre ya existe');
                 return redirect('/admin/users/'.$id.'/edit');
             }
         }
