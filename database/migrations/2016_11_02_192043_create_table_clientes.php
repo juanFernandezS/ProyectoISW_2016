@@ -16,7 +16,7 @@ class CreateTableClientes extends Migration
             $table->increments('id');
             $table->string('telefono')->unique();
             $table->string('nombre');
-            $table->text('descipcion');
+            $table->text('direccion');
             $table->integer('id_zona');
             $table->foreign('id_zona')->references('id')->on('zonas');
             $table->timestamps();
