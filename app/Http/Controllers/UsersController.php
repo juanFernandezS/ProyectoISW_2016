@@ -27,9 +27,9 @@ class UsersController extends Controller
 
 
     }
-    public function store(Request $requests){
+    public function store(Request $request){
 /* */
-        $this->validate($requests,[
+        $this->validate($request,[
             'rut' => 'required | unique:users,rut',
             'nombre' => 'required | max:40' ,
             'telefono' =>'required | unique:users,telefono',
@@ -40,17 +40,17 @@ class UsersController extends Controller
             'password' => 'required'
         ]);
 
-        $user = new User($requests->all());
-        $user->rut=$requests->rut;
-        $user->nombre=$requests->nombre;
-        $user->telefono=$requests->telefono;
-        $user->correo=$requests->correo;
-        $user->direccion=$requests->direccion;
-        $user->tipo_de_usuario=$requests->tipos_de_usuarios;
-        $user->estado=$requests->estado;
-        $user->password =bcrypt($requests->password);
-      //  $user->tipo_de_usuario = $requests->tipos_de_usuarios;
-       // $user->estado=$requests->estado;
+        $user = new User($request->all());
+        $user->rut=$request->rut;
+        $user->nombre=$request->nombre;
+        $user->telefono=$request->telefono;
+        $user->correo=$request->correo;
+        $user->direccion=$request->direccion;
+        $user->tipo_de_usuario=$request->tipos_de_usuarios;
+        $user->estado=$request->estado;
+        $user->password =bcrypt($request->password);
+      //  $user->tipo_de_usuario = $request->tipos_de_usuarios;
+       // $user->estado=$request->estado;
 
         $user->save();
         Flash::success('El usuario '. $user->nombre .' se a ingresado con exito');
@@ -70,10 +70,11 @@ class UsersController extends Controller
 
         $user = User::find($id);
         return view('admin.users.edit')->with('user', $user);
-    }
-    public function update(Requests $requests, $id){
 
-        $aux= Users::all();
+    }
+    public function update(Request $request, $id){
+
+        $aux= User::all();
 
         foreach ( $aux as $user){
             if($user->nombre == $request->nombre){
@@ -82,30 +83,30 @@ class UsersController extends Controller
             }
         }
 
-        $this->validate($requests,[
-            'rut' => 'required | unique:users,rut',
-            'nombre' => 'required | alpha' ,
-            'telefono' =>'required | unique:users,telefono',
-            'correo' => 'required | unique:users,correo',
+        $this->validate($request,[
+            'rut' => 'required',
+            'nombre' => 'required | max:40' ,
+            'telefono' =>'required',
+            'correo' => 'required',
             'direccion' => 'required',
-            'tipo_de_usuario' => 'required | in:administrador,cajero,repartidor',
-            'estado' => 'required | in: vigente, no vigente',
-            'password' => 'required'
+            'tipos_de_usuarios' => 'required | in:administrador,cajero,repartidor',
+            'estado' => 'required | in:vigente,no vigente',
+
         ]);
 
 
         $user= User::find($id);
-        $user->rut=$requests->rut;
-        $user->nombre=$requests->nombre;
-        $user->telefono=$requests->telefono;
-        $user->correo=$requests->correo;
-        $user->direccion=$requests->direccion;
-        $user->tipo_de_usuario=$requests->tipos_de_usuarios;
-        $user->estado=$requests->estado;
+        $user->rut=$request->rut;
+        $user->nombre=$request->nombre;
+        $user->telefono=$request->telefono;
+        $user->correo=$request->correo;
+        $user->direccion=$request->direccion;
+        $user->tipo_de_usuario=$request->tipos_de_usuarios;
+        $user->estado=$request->estado;
 
         $user->save();
 
-        return redirect('admin/user');
+        return redirect('admin/users');
 
 
 

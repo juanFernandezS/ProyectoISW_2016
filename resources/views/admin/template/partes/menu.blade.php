@@ -9,6 +9,10 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">Santoku-Sushi</a>
+            <a class="navbar-brand" href="{{route('admin.users.index')}}">Usuario</a>
+            <a class="navbar-brand" href="{{route('admin.ingrediente.index')}}">Ingrediente</a>
+            <a class="navbar-brand" href="{{route('admin.coberturas.index')}}">Cobertura</a>
+
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -16,7 +20,7 @@
             <ul class="nav navbar-nav">
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inicio <span class="caret"></span></a>
+
                     <ul class="dropdown-menu">
                         <li><a href="{{route('admin.users.index')}}">Usuario</a></li>
                         <li><a href="{{route('admin.ingrediente.index')}}">Ingredientes</a></li>

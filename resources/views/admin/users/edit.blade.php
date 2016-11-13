@@ -55,6 +55,7 @@
 
     <div class="form-group">
         {!! Form::submit('Editar',['class'=>'btn btn-primary'])!!}
+        <a href="{{route('admin.users.index') }} " class="btn btn-primary" role="button">Cancelar</a>
 
     </div>
 
