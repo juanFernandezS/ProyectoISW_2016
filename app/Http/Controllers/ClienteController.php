@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Cliente;
 use Laracasts\Flash\Flash;
 use Symfony\Component\HttpKernel\Client;
+use App\Http\Requests\ClienteRequest;
 
 class ClienteController extends Controller
 {
@@ -39,14 +40,12 @@ class ClienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClienteRequest $request)
     {
         //dd($request->all());
         $cliente = new Cliente($request->all());
-
         $cliente -> save();
-
-        Flash::success('Success');
+        Flash::success('Save Successfull');
         return redirect()->route('commonusers.clientes.index');
 
     }
@@ -84,7 +83,7 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Requests $request, $id)
     {
         $cliente = Cliente::find($id);
         $cliente->telefono = $request->telefono;
