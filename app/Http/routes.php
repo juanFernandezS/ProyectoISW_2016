@@ -12,11 +12,7 @@ Route::group(['prefix' => 'commonusers'], function(){
         'uses'  => 'ClienteController@destroy',
         'as'    => 'commonusers.clientes.destroy'
     ]);
-    /*Route::get('clientes/{id}/edit',[
-        'uses'  => 'ClienteController@edit',
-        'as'    => 'commonusers.clientes.edit'
-    ]);
-   */
+    
 });
 
 Route::group(['prefix' => 'admin'],function(){

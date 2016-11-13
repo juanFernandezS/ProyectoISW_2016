@@ -1,8 +1,11 @@
 @extends('commonusers.template.main')
 
-@section('title','Crear Usuario')
+
+@section('titlepanel','Crear Cliente')
 
 @section('cliente-form')
+
+    @section('title','Ingresar Cliente')
 
     {!!Form::open(['route' => 'commonusers.clientes.store' , 'method' => 'POST']) !!}
 
@@ -27,10 +30,10 @@
     {!! Form::label('id_zona', 'Zona') !!}
     {!! Form::select('id_zona',[
     '1'   =>  'Concepcion',
-    'cll'   =>  'Collao',
-    'bnor'  =>  'Barrio Norte',
-    'hpn'   =>  'Hualpen',
-    'thno'  =>  'Talcahuano',
+    '2'   =>  'Collao',
+    '3'  =>  'Barrio Norte',
+    '4'   =>  'Hualpen',
+    '5'  =>  'Talcahuano',
      ],'null', ['class'=>'form-control']) !!}
 
     <br>

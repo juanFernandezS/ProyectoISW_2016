@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> @yield('title','default') | doc prueba</title>
+    <title> @yield('title','titulo default') | Santoku Sushi</title>
     <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css')}}">
     <script src="{{ asset('plugins/jquery/js/jquery-3.1.1.js')}}"></script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
 
 </head>
 <body>
+
 @include('commonusers.template.nav')
 
 <section>
+
     <div class="container">
         @include('flash::message')
         <div class="panel panel-primary">

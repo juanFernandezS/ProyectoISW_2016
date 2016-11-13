@@ -1,10 +1,12 @@
 @extends('commonusers.template.main')
 
-@section('title','Editar Cliente')
+@section('title','Editar Cliente ')
+
+@section('titlepanel','Editar Cliente: '.$cliente->nombre)
 
 @section('cliente-form')
 
-    {!!Form::model(['route' => 'commonusers.clientes.update' , 'method' => 'PUT']) !!}
+    {!!Form::model($cliente,['route' => ['commonusers.clientes.update',$cliente] , 'method' => 'PUT']) !!}
 
     {!! Form::label('telefono', 'Telefono') !!}
     {!! Form::text('telefono',$cliente->telefono,['class' => 'form-control', 'placeholder' => 'Telefono' , 'required']) !!}
@@ -24,18 +26,20 @@
     <br>
 
 
-    {!! Form::label('id_zona', 'Zona') !!}
     {!! Form::select('id_zona',[
-    '$cliente->id_zona'   =>  'Concepcion',
-    '$cliente->id_zona'   =>  'Collao',
-    'bnor'  =>  'Barrio Norte',
-    'hpn'   =>  'Hualpen',
-    'thno'  =>  'Talcahuano',
-     ],'null', ['class'=>'form-control']) !!}
+   '1'   =>  'Concepcion',
+   '2'   =>  'Collao',
+   '3'  =>  'Barrio Norte',
+   '4'   =>  'Hualpen',
+   '5'  =>  'Talcahuano',
+    ],$cliente->id_zona, ['class'=>'form-control']) !!}
+
+
 
     <br>
     <div class="form-group">
-        {!! Form::submit('Registar', ['class' => 'btn btn-primary']) !!}
+        {!! Form::submit('Guardar', ['class' => 'btn btn-warning']) !!}
+
     </div>
 
     {!! Form::close() !!}

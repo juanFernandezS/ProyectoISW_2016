@@ -86,7 +86,16 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cliente = Cliente::find($id);
+        $cliente->telefono = $request->telefono;
+        $cliente->nombre = $request->nombre;
+        $cliente->direccion = $request->direccion;
+        $cliente->id_zona = $request->id_zona;
+        $cliente->save();
+
+        Flash::success('Edit Success');
+
+        return redirect()->route('commonusers.clientes.index');
     }
 
     /**
