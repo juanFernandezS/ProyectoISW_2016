@@ -71,9 +71,10 @@ class UsersController extends Controller
         $user = User::find($id);
         return view('admin.users.edit')->with('user', $user);
     }
+
     public function update(Requests $requests, $id){
 
-        $aux= Users::all();
+        $aux= User::all();
 
         foreach ( $aux as $user){
             if($user->nombre == $request->nombre){
@@ -84,7 +85,7 @@ class UsersController extends Controller
 
         $this->validate($requests,[
             'rut' => 'required | unique:users,rut',
-            'nombre' => 'required | alpha' ,
+            'nombre' => 'required | max:40',
             'telefono' =>'required | unique:users,telefono',
             'correo' => 'required | unique:users,correo',
             'direccion' => 'required',
