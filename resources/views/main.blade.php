@@ -9,8 +9,6 @@
 <body>
 
 
-
-@include('admin.template.partes.menu')
     <section>
         <div class="container">
             @include('flash::message')
