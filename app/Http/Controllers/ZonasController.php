@@ -88,6 +88,11 @@ class ZonasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $zona = Zona::find($id);
+        $zona->delete();
+
+        //Flash::danger('Erase Success');
+        Flash::error('Deleted');
+        return redirect()->route('admin.zonas.index');
     }
 }

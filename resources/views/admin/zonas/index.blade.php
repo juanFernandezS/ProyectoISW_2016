@@ -21,11 +21,11 @@
                 <td>{{$item->id}}</td>
                 <td>{{$item->nombre}}</td>
                 <td>
-                    <a href="{{route('commonusers.clientes.edit',$item->id)}}"
+                    <a href="{{route('admin.zonas.edit',$item->id)}}"
                        class="btn btn-warning">
                         <span class=" glyphicon glyphicon-edit"></span>
                     </a>
-                    <a href="{{route('commonusers.clientes.destroy',$item->id)}}"
+                    <a href="{{route('admin.zonas.destroy',$item->id)}}"
                        onclick="return confirm('Seguro?')"
                        class="btn btn-danger">
 
