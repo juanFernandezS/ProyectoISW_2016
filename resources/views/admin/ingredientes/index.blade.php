@@ -18,7 +18,7 @@
                     <tr>
                         <td>{!! $ingrediente->id !!}</td>
                         <td> {!!$ingrediente->nombre !!}</td>
-                    <td><a href=" {{ route('admin.ingrediente.edit', $ingrediente->id) }} " class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
+                    <td><a href=" {{ route('admin.ingrediente.edit', $ingrediente->id) }} " class="btn btn-warning"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                      <a href=" {{ route('admin.ingrediente.destroy', $ingrediente->id) }}" class="btn btn-danger" onclick="return confirm('seguro que quieres eliminarlo?')"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
                     </tr>
 
