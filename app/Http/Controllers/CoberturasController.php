@@ -19,7 +19,7 @@ class CoberturasController extends Controller
      */
     public function index()
     {
-        $coberturas= Cobertura::orderBy('id','ASC')->paginate(6);
+        $coberturas= Cobertura::orderBy('id','ASC')->paginate(5);
         return view('admin.coberturas.index')->with('coberturas', $coberturas);
     }
 
@@ -92,14 +92,16 @@ class CoberturasController extends Controller
         $aux= Cobertura::all();
 
         foreach ( $aux as $coberturas){
-            if($coberturas->nombre == $request->nombre){
-                Flash::error('El nombre ya existe!');
-                return redirect('/admin/coberturas/'.$id.'/edit');
+            if($id!=$coberturas->id){
+               if($coberturas->nombre == $request->nombre    ){
+                   Flash::error('El nombre ya existe!');
+                   return redirect('/admin/coberturas/'.$id.'/edit');
+               }
             }
         }
 
         $this-> validate( $request, [
-            'nombre'=> 'required|unique:coberturas,nombre',
+            'nombre'=> 'required',
             'precio'=> 'required|min:2000|max:20000|numeric'
         ]);
 
@@ -111,7 +113,6 @@ class CoberturasController extends Controller
         $cobertura->fill($request->all());
         $cobertura->save();
         Flash::warning('La cobertura '. $cobertura->nombre. ' a sido editada con exito!');
-
         return redirect()->route('admin.coberturas.index');
     }
 
