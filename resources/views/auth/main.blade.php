@@ -8,7 +8,6 @@
 </head>
 <body>
 
-
     <section>
         <div class="container">
             @include('flash::message')

@@ -2,7 +2,7 @@
 @section('titulo','Lista ingredientes')
 @section('content')
 
-        <a href="{{route('admin.ingrediente.create')}}" class="btn btn-info"> Resistar nuevo ingrediente</a><hr>
+        <a href="{{route('admin.ingrediente.create')}}" class="btn btn-info"> Registar nuevo ingrediente</a><hr>
         <table class="table table-striped">
             <thead>
                 <th>ID</th>
