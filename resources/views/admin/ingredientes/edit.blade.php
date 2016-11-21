@@ -16,18 +16,20 @@
         </div>
     @endif
     <div class="form-group">
-        {!! Form::label('nombre','Editar ingrediente') !!}
-        {!! Form::text('nombre',null,['class' =>'form-control','placeholder'=>'']) !!}
+        {!! Form::label('nombre','Nombre ingrediente') !!}
+
+        {!! Form::text('nombre',null,['class' =>'form-control','placeholder'=>'Ingresar nombre']) !!}
     </div>
 
     <div class="form-group">
-
+        {!! Form::label('cantidad_unitaria','Ingresar cantidad unitaria') !!}
+        {!! Form::text('cantidad_unitaria',null,['class' =>'form-control','placeholder'=>'cantidad unitaria']) !!}
+    </div>
+<div class="form-group">
     {!! Form::submit('Editar',['class' => 'btn btn-primary'])!!}
-
-
     {!! Form::close() !!}
         <a href="{{route('admin.ingrediente.index') }} " class="btn btn-primary" role="button">Cancelar</a>
 
-
+</div>
 @endsection
 

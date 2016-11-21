@@ -34,7 +34,7 @@
             <ul class="nav navbar-nav navbar-right">
 
                         <li role="separator" class="divider"></li>
-                <a class="navbar-brand" href="#">Cerrar Sesion</a>
+                <a class="navbar-brand" href="{{url('auth/logout')}}">Cerrar Sesion</a>
                     </ul>
                 </li>
             </ul>
