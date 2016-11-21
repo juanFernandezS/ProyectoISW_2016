@@ -57,9 +57,5 @@ class AuthController extends Controller
         ]);
     }
 
-    protected function cerrarSesion(){
-
-        Auth::logout();
-    }
 
 }
