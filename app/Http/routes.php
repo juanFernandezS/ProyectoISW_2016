@@ -47,7 +47,7 @@ Route::get('/', 'HomeController@home');
 Route::get('/home', 'HomeController@home');
 
 
-Route::get('auth/login','Auth\AuthController@getLogin');
+Route::get('auth/login','Auth\AuthController@showLoginForm');
 Route::post('auth/login','Auth\AuthController@postLogin');
 Route::get('auth/logout','Auth\AuthController@logout');
 
