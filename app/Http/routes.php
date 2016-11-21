@@ -20,6 +20,13 @@ Route::group(['prefix' => 'admin'],function(){
         'as' =>'admin.ingredientes.destroy']);
 
 
+    Route::resource('zonas','ZonasController');
+
+    Route::get('zonas/{id}/destroy',[
+        'uses'  => 'ZonasController@destroy',
+        'as'    => 'admin.zonas.destroy'
+    ]);
+
 
     Route::resource('coberturas','CoberturasController');
 

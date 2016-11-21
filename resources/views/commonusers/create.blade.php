@@ -26,7 +26,7 @@
     {!!Form::open(['route' => 'commonusers.clientes.store' , 'method' => 'POST']) !!}
 
     {!! Form::label('telefono', 'Telefono') !!}
-    {!! Form::text('telefono',null,['class' => 'form-control', 'placeholder' => 'Telefono' , 'required']) !!}
+    {!! Form::number('telefono',null,['class' => 'form-control', 'placeholder' => 'Telefono' , 'required']) !!}
 
     <br>
 

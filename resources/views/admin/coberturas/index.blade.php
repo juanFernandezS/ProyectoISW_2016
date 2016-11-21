@@ -18,7 +18,7 @@
                     <td>{{ $cobertura->nombre }}</td>
                     <td>{{ $cobertura->precio }}</td>
 
-                    <td><a href=" {{ route('admin.coberturas.edit', $cobertura->id) }} " class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
+                    <td><a href=" {{ route('admin.coberturas.edit', $cobertura->id) }} " class="btn btn-warning"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                         <a href=" {{ route('admin.coberturas.destroy', $cobertura->id) }}" class="btn btn-danger" onclick="return confirm('seguro que quieres eliminarlo?')"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
                 </tr>
             @endforeach

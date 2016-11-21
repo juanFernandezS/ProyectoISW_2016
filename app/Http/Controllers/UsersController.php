@@ -76,12 +76,6 @@ class UsersController extends Controller
 
         $aux= User::all();
 
-        foreach ( $aux as $user){
-            if($user->nombre == $request->nombre){
-                Flash::error('El nombre ya existe');
-                return redirect('/admin/users/'.$id.'/edit');
-            }
-        }
 
         $this->validate($request,[
             'rut' => 'required',

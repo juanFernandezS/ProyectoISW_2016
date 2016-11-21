@@ -5,12 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Cliente;
+use App\Zona;
 use Laracasts\Flash\Flash;
-use Symfony\Component\HttpKernel\Client;
-use App\Http\Requests\ClienteRequest;
 
-class ClienteController extends Controller
+class ZonasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +17,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $cliente = Cliente::orderBy('id','DES')->paginate(10);
-        return view ('commonusers.index')->with('cliente',$cliente);
-
+        $zona = Zona::orderBy('id','ASC')->paginate(10);
+        return view ('admin.zonas.index')->with('zona',$zona);
     }
 
     /**
@@ -31,7 +28,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        return view('commonusers.create');
+        return view('admin.zonas.create');
     }
 
     /**
@@ -40,14 +37,13 @@ class ClienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ClienteRequest $request)
+    public function store(Request $request)
     {
         //dd($request->all());
-        $cliente = new Cliente($request->all());
-        $cliente -> save();
+        $zona = new Zona($request->all());
+        $zona -> save();
         Flash::success('Save Successfull');
-        return redirect()->route('commonusers.clientes.index');
-
+        return redirect()->route('admin.zonas.index');
     }
 
     /**
@@ -69,11 +65,7 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        $cliente = Cliente::find($id);
-
-        //dd($id);
-        return view ('commonusers.clientes.edit')->with('cliente',$cliente);
-
+        //
     }
 
     /**
@@ -83,18 +75,9 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ClienteRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $cliente = Cliente::find($id);
-        $cliente->telefono = $request->telefono;
-        $cliente->nombre = $request->nombre;
-        $cliente->direccion = $request->direccion;
-        $cliente->id_zona = $request->id_zona;
-        $cliente->save();
-
-        Flash::success('Edit Success');
-
-        return redirect()->route('commonusers.clientes.index');
+        //
     }
 
     /**
@@ -105,11 +88,11 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        $cliente = Cliente::find($id);
-        $cliente->delete();
+        $zona = Zona::find($id);
+        $zona->delete();
 
         //Flash::danger('Erase Success');
-        Flash::error('Success');
-        return redirect()->route('commonusers.clientes.index');
+        Flash::error('Deleted');
+        return redirect()->route('admin.zonas.index');
     }
 }
