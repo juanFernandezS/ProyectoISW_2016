@@ -7,6 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -50,7 +51,7 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'email' => 'required|rut|max:255|unique:users',
+            'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
     }
@@ -65,41 +66,12 @@ class AuthController extends Controller
     {
         return User::create([
             'name' => $data['name'],
-            'rut' => $data['rut'],
+            'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
     }
 
-    public function postLogin(Request $request){
 
-        if (Auth::attempt(
-            [
-                'rut' => $request->rut,
-                'password' => $request->password,
-                'active' => 1
-            ]
-            , $request->has('remember')
-        )){
-            return redirect()->intended($this->redirectPath());
-        }
-        else{
-            $rules = [
-                'rut' => 'required|rut',
-                'password' => 'required',
-            ];
-
-            $messages = [
-                'rut.required' => 'El campo rut es requerido',
-                'rut.email' => 'El formato del rut es incorrecto',
-                'password.required' => 'El campo password es requerido',
-            ];
-
-            $validator = Validator::make($request->all(), $rules, $messages);
-
-            return redirect('auth/login')
-                ->withErrors($validator)
-                ->withInput()
-                ->with('message', 'Error al iniciar sesión');
-        }
-    }
 }
+
+

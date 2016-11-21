@@ -1,4 +1,4 @@
-@extends('main')
+@extends('auth.main')
 
 @section('content')
 <div class="container">
@@ -7,14 +7,14 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('auth/login') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('rut') ? ' has-error' : '' }}">
                             <label for="rut" class="col-md-4 control-label">Rut</label>
 
                             <div class="col-md-6">
-                                <input id="rut" type="rut" class="form-control" name="rut" value="{{ old('rut') }}">
+                                <input id="" type="rut" class="form-control" name="rut" value="{{ old('rut') }}">
 
                                 @if ($errors->has('rut'))
                                     <span class="help-block">
@@ -54,7 +54,7 @@
                                     <i class="fa fa-btn fa-sign-in"></i> Login
                                 </button>
 
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
+                                <a class="btn btn-link" href="{{ url('/password/reset') }}">¿Olvidó su contraseña?</a>
                             </div>
                         </div>
                     </form>
