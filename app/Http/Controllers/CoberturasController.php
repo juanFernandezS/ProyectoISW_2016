@@ -65,7 +65,8 @@ class CoberturasController extends Controller
      */
     public function show($id)
     {
-        //
+        $cobertura= Cobertura::find($id);
+        return view('admin.coberturas.show')->with('cobertura', $cobertura);
     }
 
     /**

@@ -28,12 +28,17 @@ Route::group(['prefix' => 'admin'],function(){
     ]);
 
 
-    Route::resource('coberturas','CoberturasController');
+        Route::resource('coberturas','CoberturasController');
 
-    Route::get('cobertura/{id}/destroy',[
-        'uses' => 'CoberturasController@destroy',
-        'as' => 'admin.coberturas.destroy'
-    ]);
+        Route::get('coberturas/{id}/show', [
+            'uses' => 'CoberturasController@show',
+            'as'   => 'admin.coberturas.show'
+        ]);
+
+        Route::get('coberturas/{id}/destroy',[
+            'uses' => 'CoberturasController@destroy',
+            'as' => 'admin.coberturas.destroy'
+        ]);
 
     Route::resource('users','UsersController');
 
