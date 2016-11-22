@@ -33,6 +33,8 @@ class AuthController extends Controller
      */
     protected $redirectTo = '/';
 
+    protected $username = 'rut';
+
     /**
      * Create a new authentication controller instance.
      *
@@ -57,9 +59,5 @@ class AuthController extends Controller
         ]);
     }
 
-    protected function cerrarSesion(){
-
-        Auth::logout();
-    }
 
 }
