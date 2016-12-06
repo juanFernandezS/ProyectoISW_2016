@@ -1,6 +1,6 @@
 @extends('admin.template.main')
 
-@section('Coberturas', 'editar coberturas'. $cobertura->name)
+@section('titulo', 'Editar cobertura |'.$cobertura->name)
 
 @section('content')
     {!! Form::open(['route' => ['admin.coberturas.update', $cobertura], 'method' => 'PUT']) !!}
@@ -27,7 +27,8 @@
     </div>
 
     <div class="form-group">
-        {!!Form::submit('Editar', ['class' => 'btn btn-primary']) !!}
+        {!!Form::submit('Editar', ['class' => 'btn btn-warning']) !!}
+        <a href="{{route('admin.coberturas.index') }} " class="btn btn-primary" role="button">Cancelar</a>
     </div>
 
     {!! Form::close()!!}

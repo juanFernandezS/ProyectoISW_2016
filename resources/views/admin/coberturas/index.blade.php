@@ -1,9 +1,8 @@
 @extends('admin.template.main')
 
-@section('Coberturas','lista de coberturas')
+@section('titulo','lista de coberturas')
 
 @section('content')
-
 
     <a href="{{ route('admin.coberturas.create') }}" class="btn btn-info">Ingresar nueva cobertura</a><hr>
     <table class="table" table-striped>

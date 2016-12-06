@@ -1,6 +1,6 @@
 @extends('admin.template.main')
 
-@section('Coberturas', 'eliminar coberturas'. $cobertura->name)
+@section('titulo', 'eliminar coberturas'. $cobertura->name)
 
 @section('content')
     {!! Form::open(['route' => ['admin.coberturas.destroy', $cobertura], 'method' => 'GET']) !!}
@@ -20,8 +20,10 @@
 
     <div class="form-group">
         {!!Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
+        <a href="{{route('admin.coberturas.index') }} " class="btn btn-primary" role="button">Cancelar</a>
     </div>
 
     {!! Form::close()!!}
+
 
 @endsection
