@@ -28,7 +28,7 @@ class IngredientesController extends Controller
 
         $this->validate( $request,[
             'nombre'=>'required |alpha|unique:ingredientes,nombre',
-            'cantidad_unitaria' => 'required|min:0|max:20000|numeric'
+            'cantidad_unitaria' => 'required|min:0|max:10000|numeric'
         ]);
         $ingredientes = new Ingrediente($request->all());
         $ingredientes->nombre=$request->nombre;
@@ -62,7 +62,7 @@ class IngredientesController extends Controller
 
         $this->validate( $request,[
             'nombre'=>'required |max:40',
-            'cantidad_unitaria'=>'required|min:0|max:20000|numeric'
+            'cantidad_unitaria'=>'required|min:0|max:10000|numeric'
         ]);
 
         $ingredientes = Ingrediente::find($id);
