@@ -9,7 +9,7 @@
     <a href="{{route('commonusers.clientes.create')}}" class="btn btn-info">Nuevo Usuario</a>
     <br>
     <br>
-    <table class="table table-striped">
+    <div class="table-responsive"><table class="table table-striped">
         <thread>
             <th>ID</th>
             <th>Telefono</th>
@@ -54,6 +54,6 @@
             </tr>
             @endforeach
         </tbody>
-    </table>
+    </table></div>
     {!! $cliente->render() !!}
     @endsection

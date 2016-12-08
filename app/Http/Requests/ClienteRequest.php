@@ -25,7 +25,7 @@ class ClienteRequest extends Request
     {
         return [
             'telefono'  => 'min:4|max:40|required',
-            'nombre'    => 'min:3|max:341required'
+            'nombre'    => 'min:3|max:34|required'
         ];
     }
 }

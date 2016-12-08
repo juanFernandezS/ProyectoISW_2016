@@ -10,7 +10,7 @@ use Laracasts\Flash\Flash;
 use Symfony\Component\HttpKernel\Client;
 use App\Http\Requests\ClienteRequest;
 
-class ClienteController extends Controller
+class ClientesController extends Controller
 {
     /**
      * Display a listing of the resource.
