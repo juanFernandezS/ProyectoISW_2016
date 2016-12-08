@@ -11,7 +11,6 @@ class User extends Authenticatable
         'rut','nombre', 'telefono','correo','direccion','tipo_de_usuario','estado'
     ];
 
-
     protected $hidden = [
         'password', 'remember_token',
     ];

@@ -27,10 +27,14 @@ class IngredientesController extends Controller
     public function store(Request $request){
 
         $this->validate( $request,[
-            'nombre'=>'required |alpha|unique:ingredientes,nombre'
+            'nombre'=>'required |alpha|unique:ingredientes,nombre',
+            'cantidad_unitaria' => 'required|min:0|max:20000|numeric'
         ]);
         $ingredientes = new Ingrediente($request->all());
+        $ingredientes->nombre=$request->nombre;
+        $ingredientes->cantidad_unitaria=$request->cantidad_unitaria;
         $ingredientes->save();
+
         Flash::success('El ingrediente '. $ingredientes->nombre .' se a ingresado con exito');
         return redirect()->route('admin.ingrediente.index');
 
@@ -54,19 +58,16 @@ class IngredientesController extends Controller
 
         $aux= Ingrediente::all();
 
-        foreach ( $aux as $ingredientes){
-            if($ingredientes->nombre == $request->nombre){
-                Flash::error('El nombre ya existe!');
-                return redirect('/admin/ingrediente/'.$id.'/edit');
-            }
-        }
+
 
         $this->validate( $request,[
-            'nombre'=>'required |alpha|unique:ingredientes,nombre'
+            'nombre'=>'required |max:40',
+            'cantidad_unitaria'=>'required|min:0|max:20000|numeric'
         ]);
 
         $ingredientes = Ingrediente::find($id);
         $ingredientes ->nombre=$request->nombre;
+        $ingredientes->cantidad_unitaria=$request->cantidad_unitaria;
         $ingredientes->save();
         return redirect()->route('admin.ingrediente.index');
 

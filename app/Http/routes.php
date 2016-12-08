@@ -28,12 +28,17 @@ Route::group(['prefix' => 'admin'],function(){
     ]);
 
 
-    Route::resource('coberturas','CoberturasController');
+        Route::resource('coberturas','CoberturasController');
 
-    Route::get('cobertura/{id}/destroy',[
-        'uses' => 'CoberturasController@destroy',
-        'as' => 'admin.coberturas.destroy'
-    ]);
+        Route::get('coberturas/{id}/show', [
+            'uses' => 'CoberturasController@show',
+            'as'   => 'admin.coberturas.show'
+        ]);
+
+        Route::get('coberturas/{id}/destroy',[
+            'uses' => 'CoberturasController@destroy',
+            'as' => 'admin.coberturas.destroy'
+        ]);
 
     Route::resource('users','UsersController');
 
@@ -43,11 +48,12 @@ Route::group(['prefix' => 'admin'],function(){
     ]);
 });
 
-Route::auth();
 Route::get('/', 'HomeController@home');
 Route::get('/home', 'HomeController@home');
-Route::get('auth/login','Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+
+Route::get('auth/login','Auth\AuthController@showLoginForm');
+Route::post('auth/login','Auth\AuthController@postLogin');
+Route::get('auth/logout','Auth\AuthController@logout');
 
 

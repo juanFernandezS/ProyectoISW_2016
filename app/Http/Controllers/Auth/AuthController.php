@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+
+use App\Http\Requests\Request;
+use Illuminate\Support\Facades\Auth;
 use App\User;
-use Validator;
+use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -30,6 +33,8 @@ class AuthController extends Controller
      */
     protected $redirectTo = '/';
 
+    protected $username = 'rut';
+
     /**
      * Create a new authentication controller instance.
      *
@@ -43,63 +48,16 @@ class AuthController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|rut|max:255|unique:users',
+            'rut' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'rut' => $data['rut'],
-            'password' => bcrypt($data['password']),
-        ]);
-    }
 
-    public function postLogin(Request $request){
-
-        if (Auth::attempt(
-            [
-                'rut' => $request->rut,
-                'password' => $request->password,
-                'active' => 1
-            ]
-            , $request->has('remember')
-        )){
-            return redirect()->intended($this->redirectPath());
-        }
-        else{
-            $rules = [
-                'rut' => 'required|rut',
-                'password' => 'required',
-            ];
-
-            $messages = [
-                'rut.required' => 'El campo rut es requerido',
-                'rut.email' => 'El formato del rut es incorrecto',
-                'password.required' => 'El campo password es requerido',
-            ];
-
-            $validator = Validator::make($request->all(), $rules, $messages);
-
-            return redirect('auth/login')
-                ->withErrors($validator)
-                ->withInput()
-                ->with('message', 'Error al iniciar sesión');
-        }
-    }
 }

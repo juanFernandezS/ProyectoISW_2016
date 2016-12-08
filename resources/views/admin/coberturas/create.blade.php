@@ -1,6 +1,6 @@
 @extends('admin.template.main')
 
-@section('Coberturas', 'agregar coberturas')
+@section('titulo', 'Agregar coberturas')
 
 @section('content')
     {!! Form::open(['route' => 'admin.coberturas.store', 'method' => 'POST']) !!}
@@ -16,6 +16,7 @@
         </div>
     @endif
 
+
     <div class="form-group">
         {!!Form::label('nombre','Nombre') !!}
         {!!Form::text('nombre', null, ['class'=> 'form-control', 'placeholder' => 'Nombre de la cobertura', 'require']) !!}
@@ -27,7 +28,8 @@
     </div>
 
     <div class="form-group">
-        {!!Form::submit('registrar', ['class' => 'btn btn-primary']) !!}
+        {!!Form::submit('registrar', ['class' => 'btn btn-success']) !!}
+        <a href="{{route('admin.coberturas.index') }} " class="btn btn-primary" role="button">Cancelar</a>
     </div>
 
    {!! Form::close()!!}
