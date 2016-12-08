@@ -59,7 +59,7 @@ desired effect
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="#" class="logo">
+        <a href="/" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>S</b>S</span>
             <!-- logo for regular state and mobile devices -->
@@ -77,7 +77,7 @@ desired effect
                 <ul class="nav navbar-nav">
                     <!-- User Account Menu -->
                     <li class="dropdown">
-                            <li><a href="#">Cerrar Sesion</a></li>
+                            <li><a href="{{URL::to('auth/logout')}}">Cerrar Sesion</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -103,7 +103,7 @@ desired effect
 
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu">
-                <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Home</span></a></li>
+                <li class="active"><a href="/"><i class="fa fa-link"></i> <span>Inicio</span></a></li>
                 <li class="header">Adminstrar</li>
                 <!-- Optionally, you can add icons to the links -->
 
@@ -116,10 +116,10 @@ desired effect
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#">Ver listado</a></li>
-                        <li><a href="#">Crear nuevo</a></li>
-                        <li><a href="#">Modificar datos</a></li>
-                        <li><a href="#">Eliminar usuario</a></li>
+                        <li><a href="/admin/users">Ver listado</a></li>
+                        <li><a href="/admin/users/create">Crear nuevo</a></li>
+                        <li><a href="/admin/users">Modificar datos</a></li>
+                        <li><a href="/admin/users">Eliminar usuario</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -136,10 +136,10 @@ desired effect
             			</span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="#">Ver listado</a></li>
-                                <li><a href="#">Crear nuevo</a></li>
-                                <li><a href="#">Modificar datos</a></li>
-                                <li><a href="#">Eliminar ingrediente</a></li>
+                                <li><a href="/admin/ingredientes">Ver listado</a></li>
+                                <li><a href="/admin/ingredientes/create">Crear nuevo</a></li>
+                                <li><a href="/admin/ingerdientes">Modificar datos</a></li>
+                                <li><a href="/admin/ingredientes">Eliminar ingrediente</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -149,10 +149,10 @@ desired effect
             			</span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="#">Ver listado</a></li>
-                                <li><a href="#">Crear nuevo</a></li>
-                                <li><a href="#">Modificar datos</a></li>
-                                <li><a href="#">Eliminar Cobertura</a></li>
+                                <li><a href="/admin/coberturas">Ver listado</a></li>
+                                <li><a href="/admin/coberturas/create">Crear nuevo</a></li>
+                                <li><a href="/admin/coberturas">Modificar datos</a></li>
+                                <li><a href="/admin/coberturas">Eliminar Cobertura</a></li>
                             </ul>
                         </li>
                     </ul>
