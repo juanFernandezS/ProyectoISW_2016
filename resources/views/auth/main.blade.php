@@ -98,9 +98,7 @@ desired effect
                             <div class="input-group">
                                 <input type="text" name="rut" class="form-control" placeholder="Rut" value="{{ old('rut') }}">
                                 @if ($errors->has('rut'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('rut') }}</strong>
-                                    </span>
+                                        {{ $error_rut=$errors->first('rut') }}
                                 @endif
                                 <span class="input-group-addon "><i class="glyphicon glyphicon-user"></i></span>
                             </div>
@@ -110,9 +108,7 @@ desired effect
                             <div class="input-group">
                                 <input type="password" name="password" class="form-control" placeholder="Clave">
                                 @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
+                                        {{ $error_pass = $errors->first('password') }}
                                 @endif
                                 <span class="input-group-addon"><i class=" glyphicon glyphicon-lock"></i></span>
                             </div> <!-- /.input-group -->
