@@ -1,6 +1,6 @@
 @extends('commonusers.template.main')
 
-@section('titlepanel','Editar Cliente: ')
+@section('title','Zonas de Reparto: ')
 
 @section('titlepanel','Editar Zona: '.$zona->nombre)
 

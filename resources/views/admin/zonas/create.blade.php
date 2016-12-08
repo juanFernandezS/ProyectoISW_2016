@@ -1,11 +1,11 @@
-@extends('commonusers.template.main')
+@extends('admin.template.main')
 
 
 @section('titlepanel','Crear Cliente')
 
 
 
-@section('cliente-form')
+@section('content')
 
     @if(count($errors) > 0)
         <div class="alert alert-danger" role="alert">

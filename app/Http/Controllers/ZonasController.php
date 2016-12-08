@@ -78,7 +78,13 @@ class ZonasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $zona = Zona::find($id);
+        $zona->nombre = $request->nombre;
+        $zona->save();
+
+        Flash::success('Edit Success');
+
+        return redirect()->route('admin.zonas.index');
     }
 
     /**
