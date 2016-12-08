@@ -65,7 +65,8 @@ class ZonasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $zona = Zona::find($id);
+        return view('admin.zonas.edit')->with('zona',$zona);
     }
 
     /**
@@ -77,7 +78,13 @@ class ZonasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $zona = Zona::find($id);
+        $zona->nombre = $request->nombre;
+        $zona->save();
+
+        Flash::success('Edit Success');
+
+        return redirect()->route('admin.zonas.index');
     }
 
     /**
