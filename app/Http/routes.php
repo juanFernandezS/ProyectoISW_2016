@@ -3,10 +3,10 @@
 
 Route::group(['prefix' => 'commonusers'], function(){
 
-    Route::resource('clientes','ClienteController');
+    Route::resource('clientes','ClientesController');
     
     Route::get('clientes/{id}/destroy',[
-        'uses'  => 'ClienteController@destroy',
+        'uses'  => 'ClientesController@destroy',
         'as'    => 'commonusers.clientes.destroy'
     ]);
     

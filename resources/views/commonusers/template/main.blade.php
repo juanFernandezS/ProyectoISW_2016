@@ -19,7 +19,8 @@
     <div class="container">
         @include('flash::message')
         <div class="panel panel-primary">
-            <div class="panel-heading">@yield('titlepanel','Default')</div>
+            <div class="panel-heading">@yield('titlepanel','Default')
+            </div>
             <div class="panel-body">@yield('cliente-form')
             </div>
         </div>
