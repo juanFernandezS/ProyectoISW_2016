@@ -1,7 +1,9 @@
 <?php
 
 
-Route::group(['prefix' => 'commonusers'], function(){
+    Route::group(['prefix' => 'commonusers'], function(){
+
+    //--------------Rutas Clientes----------------
 
     Route::resource('clientes','ClientesController');
     
@@ -10,16 +12,20 @@ Route::group(['prefix' => 'commonusers'], function(){
         'as'    => 'commonusers.clientes.destroy'
     ]);
     
-});
+    });
 
-Route::group(['prefix' => 'admin'],function(){
+    Route::group(['prefix' => 'admin'],function(){
+
+    //------------Rutas ingredientes--------------
+
     Route::resource('ingrediente','IngredientesController');
+    Route::resource('pago','PagosController');
 
     Route::get('ingrediente/{id}/destroy',[
         'ingredientes' => 'IngredientesController@destroy',
         'as' =>'admin.ingredientes.destroy']);
 
-
+    //--------------Rutas Zona----------------------
     Route::resource('zonas','ZonasController');
 
     Route::get('zonas/{id}/destroy',[
@@ -27,7 +33,7 @@ Route::group(['prefix' => 'admin'],function(){
         'as'    => 'admin.zonas.destroy'
     ]);
 
-
+    //---------------Rutas coberturas---------------
         Route::resource('coberturas','CoberturasController');
 
         Route::get('coberturas/{id}/show', [
@@ -40,12 +46,32 @@ Route::group(['prefix' => 'admin'],function(){
             'as' => 'admin.coberturas.destroy'
         ]);
 
+        Route::get('coberturas/{id}/guardarHistorial',[
+            'uses' => 'CoberturasController@guardarHistorial',
+            'as' => 'admin.coberturas.guardarHistorial'
+        ]);
+
+        Route::get('informes/historialPrecios',[
+           'uses'=> 'CoberturasController@mostrarHistorial',
+            'as' => 'admin.historial.historialPrecios'
+        ]);
+
+    //-------------Rutas Usuarios----------------
     Route::resource('users','UsersController');
 
     Route::get('user/{id}/destroy',[
         'users' => 'UsersController@destroy',
         'as' => 'admin.user.destroy'
     ]);
+    Route::get('admin/{id}/destroy',[
+        'pagos' => 'PagosController@destroy',
+        'as' => 'admin.pagos.destroy'
+    ]);
+
+    Route::resource('estados','EstadosController');
+
+
+
 });
 
 Route::get('/', 'HomeController@home');
