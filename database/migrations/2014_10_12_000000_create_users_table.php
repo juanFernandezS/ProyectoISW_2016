@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->string('correo')->unique();
             $table->string('direccion');
             $table->enum('tipo_de_usuario',['administrador','cajero','repartidor'])->defaul('cajero','repartidor');
-            $table->enum('estado',['vigente','no vigente']);
             $table->string('password');
 
 

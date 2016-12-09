@@ -70,8 +70,9 @@
         'uses' => 'PagosController@destroy',
         'as' => 'admin.pagos.destroy'
     ]);
-
+    //--------------Rutas Estados-------
     Route::resource('estados','EstadosController');
+
 
 
 

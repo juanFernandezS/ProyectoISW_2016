@@ -8,7 +8,7 @@ class User extends Authenticatable
 {
     protected $table="users";
     protected $fillable = [
-        'rut','nombre', 'telefono','correo','direccion','tipo_de_usuario','estado'
+        'rut','nombre', 'telefono','correo','direccion','tipo_de_usuario'
     ];
 
     protected $hidden = [
