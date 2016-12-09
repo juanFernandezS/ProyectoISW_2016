@@ -3,24 +3,30 @@
 
 Route::group(['prefix' => 'commonusers'], function(){
 
-    Route::resource('clientes','ClienteController');
+    //--------------Rutas Clientes----------------
+
+    Route::resource('clientes','ClientesController');
 
     Route::get('clientes/{id}/destroy',[
-        'uses'  => 'ClienteController@destroy',
+        'uses'  => 'ClientesController@destroy',
         'as'    => 'commonusers.clientes.destroy'
     ]);
 
 });
 
-Route::group(['prefix' => 'admin'],function(){
-    Route::resource('ingrediente','IngredientesController');
 
+
+Route::group(['prefix' => 'admin'],function(){
+
+    //------------Rutas ingredientes--------------
+
+    Route::resource('ingrediente','IngredientesController');
 
     Route::get('ingrediente/{id}/destroy',[
         'ingredientes' => 'IngredientesController@destroy',
         'as' =>'admin.ingredientes.destroy']);
 
-
+    //--------------Rutas Zona----------------------
     Route::resource('zonas','ZonasController');
 
     Route::get('zonas/{id}/destroy',[
@@ -28,7 +34,7 @@ Route::group(['prefix' => 'admin'],function(){
         'as'    => 'admin.zonas.destroy'
     ]);
 
-
+    //---------------Rutas coberturas---------------
     Route::resource('coberturas','CoberturasController');
 
     Route::get('coberturas/{id}/show', [
@@ -41,14 +47,35 @@ Route::group(['prefix' => 'admin'],function(){
         'as' => 'admin.coberturas.destroy'
     ]);
 
+    Route::get('coberturas/{id}/guardarHistorial',[
+        'uses' => 'CoberturasController@guardarHistorial',
+        'as' => 'admin.coberturas.guardarHistorial'
+    ]);
+
+    Route::get('informes/historialPrecios',[
+        'uses'=> 'CoberturasController@mostrarHistorial',
+        'as' => 'admin.historial.historialPrecios'
+    ]);
+
+    //-------------Rutas Usuarios----------------
     Route::resource('users','UsersController');
 
     Route::get('user/{id}/destroy',[
-        'users' => 'UsersController@destroy',
+        'uses' => 'UsersController@destroy',
         'as' => 'admin.user.destroy'
     ]);
 
+    //------------Rutas pagos-----------------
     Route::resource('pagos','PagosController');
+
+    Route::get('pagos/{id}/destroy',[
+        'uses' => 'PagosController@destroy',
+        'as' => 'admin.pagos.destroy'
+    ]);
+    //--------------Rutas Estados-------
+    Route::resource('estados','EstadosController');
+
+
 
 
 });
@@ -60,4 +87,17 @@ Route::get('/home', 'HomeController@home');
 Route::get('auth/login','Auth\AuthController@showLoginForm');
 Route::post('auth/login','Auth\AuthController@postLogin');
 Route::get('auth/logout','Auth\AuthController@logout');
+
+
+Route::group(['prefix' => 'repa'],function(){
+    Route::resource('estadoPedidos','EstadoController');
+
+    Route::get('estadoPedidos/{id}/destroy',[
+        'uses' => 'EstadoController@destroy',
+        'as' =>'repa.estadoPedidos.destroy']);
+
+    Route::get('estadoPedidos/{id}/show',[
+        'uses' => 'EstadoController@show',
+        'as' =>'repa.estadoPedidos.show']);
+});
 
