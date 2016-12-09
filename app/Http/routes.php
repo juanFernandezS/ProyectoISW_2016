@@ -14,6 +14,7 @@ Route::group(['prefix' => 'commonusers'], function(){
 
 Route::group(['prefix' => 'admin'],function(){
     Route::resource('ingrediente','IngredientesController');
+    Route::resource('pago','PagosController');
 
     Route::get('ingrediente/{id}/destroy',[
         'ingredientes' => 'IngredientesController@destroy',
@@ -46,6 +47,15 @@ Route::group(['prefix' => 'admin'],function(){
         'users' => 'UsersController@destroy',
         'as' => 'admin.user.destroy'
     ]);
+    Route::get('admin/{id}/destroy',[
+        'pagos' => 'PagosController@destroy',
+        'as' => 'admin.pagos.destroy'
+    ]);
+
+    Route::resource('estados','EstadosController');
+
+
+
 });
 
 Route::get('/', 'HomeController@home');
