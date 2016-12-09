@@ -119,19 +119,15 @@ desired effect
                                 <input type="checkbox"> Recordarme
                             </label>
                         </div> <!-- /.checkbox -->
+                        <div class="modal-footer">
+                            <button class="form-control btn btn-primary">
+                                <i class="fa fa-btn fa-sign-in"></i>Ok</button>
+                        </div> <!-- /.modal-footer -->
                     </form>
 
                 </div> <!-- /.modal-body -->
 
-                <div class="modal-footer">
-                    <button class="form-control btn btn-primary">Ok</button>
 
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="100" style="width: 0%;">
-                            <span class="sr-only">progress</span>
-                        </div>
-                    </div>
-                </div> <!-- /.modal-footer -->
 
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -139,12 +135,6 @@ desired effect
 
     <section>
         <div class="container">
-            @include('flash::message')
-             <div class="panel panel-primary">
-                 <div class="panel-heading"></div>
-                 <div class="panel-body">@yield('content')
-                </div>
-            </div>
         </div>
 
 
@@ -154,7 +144,6 @@ desired effect
 
 
 <script src="{{ asset('plugins/jquery/js/jquery-3.1.1.js')}}"></script>
-{{ Html::script("plugins/others/login.js") }}
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
 
 </body>
