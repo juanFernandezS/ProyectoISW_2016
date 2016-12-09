@@ -42,13 +42,23 @@ class CoberturasController extends Controller
     public function store(Request $request)
     {
         $this-> validate( $request, [
-            'nombre'=> 'required|unique:coberturas,nombre',
+            'nombre'=> 'required',
             'precio'=> 'required|min:2000|max:20000|numeric'
         ]);
+
+        $aux= Cobertura::all();
+
+        foreach ( $aux as $coberturas){
+                if($coberturas->nombre == $request->nombre and  $coberturas->historial==false ){
+                    Flash::error('La cobertura ya existe!');
+                    return redirect('/admin/coberturas/create');
+                }
+        }
 
         $cobertura = new Cobertura($request->all());
         $cobertura->nombre=$request->nombre;
         $cobertura->precio=$request->precio;
+        $cobertura->historial=false;
         $cobertura->save();
 
         Flash::success('La cobertura '. $cobertura->nombre .' se a ingresado con exito');
@@ -94,7 +104,7 @@ class CoberturasController extends Controller
 
         foreach ( $aux as $coberturas){
             if($id!=$coberturas->id){
-               if($coberturas->nombre == $request->nombre    ){
+               if($coberturas->nombre == $request->nombre){
                    Flash::error('El nombre ya existe!');
                    return redirect('/admin/coberturas/'.$id.'/edit');
                }
@@ -131,5 +141,19 @@ class CoberturasController extends Controller
         Flash::error('La cobertura ha sido borrada!');
 
         return redirect()->route('admin.coberturas.index');
+    }
+
+    public function guardarHistorial($id)
+    {
+        $cobertura= Cobertura::find($id);
+        $cobertura->historial=true;
+        $cobertura->save();
+        Flash::warning('La cobertura '. $cobertura->nombre. ' a se a guardado en el historial con exito!');
+        return redirect()->route('admin.coberturas.index');
+    }
+
+    public function mostrarHistorial(){
+        $coberturas= Cobertura::orderBy('nombre','ASC')->paginate(5);
+        return view('admin.informes/historialPrecios')->with('coberturas', $coberturas);
     }
 }

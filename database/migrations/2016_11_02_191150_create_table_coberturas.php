@@ -16,6 +16,7 @@ class CreateTableCoberturas extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->float('precio');
+            $table->boolean('historial')->false;
             $table->timestamps();
         });
     }

@@ -59,7 +59,7 @@ desired effect
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="#" class="logo">
+        <a href="/" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>S</b>S</span>
             <!-- logo for regular state and mobile devices -->
@@ -77,7 +77,7 @@ desired effect
                 <ul class="nav navbar-nav">
                     <!-- User Account Menu -->
                     <li class="dropdown">
-                            <li><a href="#">Cerrar Sesion</a></li>
+                            <li><a href="{{URL::to('auth/logout')}}"><b>Cerrar Sesion</b></a></li>
                         </ul>
                     </li>
                 </ul>
@@ -92,7 +92,7 @@ desired effect
             <!-- search form (Optional) -->
             <form action="#" method="get" class="sidebar-form">
                 <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search...">
+                    <input type="text" name="q" class="form-control" placeholder="Buscar...">
                     <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                 </button>
@@ -103,98 +103,92 @@ desired effect
 
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu">
-                <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Home</span></a></li>
-                <li class="header">Adminstrar</li>
+                <li class="active"><a href="/"><i class="fa fa-home"></i> <span>Inicio</span></a></li>
+
                 <!-- Optionally, you can add icons to the links -->
 
                 <!--li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li-->
 
+                <li class="header">Adminstrar</li>
                 <li class="treeview">
-                    <a href="#"><i class="fa fa-link"></i> <span>Usuarios</span>
+                    <a href="#"><i class="fa fa-folder"></i> <span>Usuarios</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#">Ver listado</a></li>
-                        <li><a href="#">Crear nuevo</a></li>
-                        <li><a href="#">Modificar datos</a></li>
-                        <li><a href="#">Eliminar usuario</a></li>
+                        <li><a href="/admin/users">Ver listado</a></li>
+                        <li><a href="/admin/users/create">Crear nuevo</a></li>
+                        <li><a href="/admin/users">Modificar datos</a></li>
+                        <li><a href="/admin/users">Eliminar usuario</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
-                    <a href="#"><i class="fa fa-link"></i> <span>Productos</span>
+                    <a href="#"><i class="fa fa-folder"></i> <span>Productos</span>
                         <span class="pull-right-container">
             	  	<i class="fa fa-angle-left pull-right"></i>
             	</span>
                     </a>
                     <ul class="treeview-menu">
                         <li class="treeview">
-                            <a href="#"><i class="fa fa-link"></i> <span>Ingredientes</span>
+                            <a href="#"><i class="fa fa-folder"></i> <span>Ingredientes</span>
                                 <span class="pull-right-container">
               				<i class="fa fa-angle-left pull-right"></i>
             			</span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="#">Ver listado</a></li>
-                                <li><a href="#">Crear nuevo</a></li>
-                                <li><a href="#">Modificar datos</a></li>
-                                <li><a href="#">Eliminar ingrediente</a></li>
+                                <li><a href="/admin/ingredientes">Ver listado</a></li>
+                                <li><a href="/admin/ingredientes/create">Crear nuevo</a></li>
+                                <li><a href="/admin/ingerdientes">Modificar datos</a></li>
+                                <li><a href="/admin/ingredientes">Eliminar ingrediente</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
-                            <a href="#"><i class="fa fa-link"></i> <span>Coberturas</span>
+                            <a href="#"><i class="fa fa-folder"></i> <span>Coberturas</span>
                                 <span class="pull-right-container">
               				<i class="fa fa-angle-left pull-right"></i>
             			</span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="#">Ver listado</a></li>
-                                <li><a href="#">Crear nuevo</a></li>
-                                <li><a href="#">Modificar datos</a></li>
-                                <li><a href="#">Eliminar Cobertura</a></li>
+                                <li><a href="/admin/coberturas">Ver listado</a></li>
+                                <li><a href="/admin/coberturas/create">Crear nuevo</a></li>
+                                <li><a href="/admin/coberturas">Modificar datos</a></li>
+                                <li><a href="/admin/coberturas">Eliminar Cobertura</a></li>
                             </ul>
                         </li>
+
                     </ul>
-                </li>
 
                 <li class="treeview">
-                    <a href="#"><i class="fa fa-link"></i> <span>Clientes</span>
+                    <a href="#"><i class="fa fa-folder"></i> <span>Zona reparto</span>
                         <span class="pull-right-container">
-            	  	<i class="fa fa-angle-left pull-right"></i>
-            	</span>
+              				<i class="fa fa-angle-left pull-right"></i>
+            			</span>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="treeview">
-                            <a href="#"><i class="fa fa-link"></i> <span>Datos clientes</span>
-                                <span class="pull-right-container">
-              				<i class="fa fa-angle-left pull-right"></i>
-            			</span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="#">Ver listado</a></li>
-                                <li><a href="#">Crear nuevo</a></li>
-                                <li><a href="#">Modificar datos</a></li>
-                                <li><a href="#">Eliminar cliente</a></li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#"><i class="fa fa-link"></i> <span>Zona repartición</span>
-                                <span class="pull-right-container">
-              				<i class="fa fa-angle-left pull-right"></i>
-            			</span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="#">Ver listado</a></li>
-                                <li><a href="#">Crear nuevo</a></li>
-                                <li><a href="#">Modificar datos</a></li>
-                                <li><a href="#">Eliminar Zona</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="/admin/zonas">Ver listado</a></li>
+                        <li><a href="/admin/zonas/create">Crear nuevo</a></li>
+                        <li><a href="/admin/zonas">Modificar datos</a></li>
+                        <li><a href="/admin/zonas">Eliminar Zona</a></li>
                     </ul>
                 </li>
+                </li>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-folder"></i> <span>Datos clientes</span>
+                        <span class="pull-right-container">
+            	  	<i class="fa fa-angle-left pull-right"></i>
+            		</span>
+                    </a>
+                        <ul class="treeview-menu">
+                           <li><a href="/commonusers/clientes">Ver listado</a></li>
+                           <li><a href="/commonusers/clientes/create">Crear nuevo</a></li>
+                           <li><a href="/commonusers/clientes">Modificar datos</a></li>
+                           <li><a href="/commonusers/clientes">Eliminar cliente</a></li>
+                        </ul>
+                </li>
                 <li class="header">Informes</li>
-                <li class="treeview"><a href="#"><i class="fa fa-link"></i> <span>Ventas del dia</span></a></li>
+                <li class="treeview"><a href="#"><i class="fa fa-file-pdf-o"></i> <span>Ventas del dia</span></a></li>
+                <li class="treeview"><a href="/admin/informes/historialPrecios"><i class="fa fa-file-pdf-o"></i> <span>Historial de precios</span></a></li>
 
             </ul>
             <!-- /.sidebar-menu -->
@@ -204,13 +198,6 @@ desired effect
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Page Header
-                <small>Optional description</small>
-            </h1>
-        </section>
 
         <!-- Main content -->
         <section class="content">
@@ -232,7 +219,7 @@ desired effect
     <!-- Main Footer -->
     <footer class="main-footer">
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2016 <a href="#">Santoku Sushi Delivery</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2016 <a href="#">Santoku Sushi Delivery</a>.</strong> Todos los derechos reservados.
     </footer>
 
 
@@ -249,8 +236,6 @@ desired effect
 
 {{ Html::script("plugins/others/bootstrap/js/bootstrap.min.js") }}
 <!-- AdminLTE App -->
-
-
 
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
