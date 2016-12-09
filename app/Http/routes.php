@@ -19,7 +19,6 @@
     //------------Rutas ingredientes--------------
 
     Route::resource('ingrediente','IngredientesController');
-    Route::resource('pago','PagosController');
 
     Route::get('ingrediente/{id}/destroy',[
         'ingredientes' => 'IngredientesController@destroy',
@@ -60,11 +59,15 @@
     Route::resource('users','UsersController');
 
     Route::get('user/{id}/destroy',[
-        'users' => 'UsersController@destroy',
+        'uses' => 'UsersController@destroy',
         'as' => 'admin.user.destroy'
     ]);
+
+    //------------Rutas pagos-----------------
+    Route::resource('pagos','PagosController');
+
     Route::get('admin/{id}/destroy',[
-        'pagos' => 'PagosController@destroy',
+        'uses' => 'PagosController@destroy',
         'as' => 'admin.pagos.destroy'
     ]);
 
