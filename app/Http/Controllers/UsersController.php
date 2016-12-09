@@ -36,7 +36,6 @@ class UsersController extends Controller
             'correo' => 'required | unique:users,correo',
             'direccion' => 'required',
             'tipos_de_usuarios' => 'required | in:administrador,cajero,repartidor',
-            'estado' => 'required | in:vigente,no vigente',
             'password' => 'required'
         ]);
 
@@ -47,7 +46,6 @@ class UsersController extends Controller
         $user->correo=$request->correo;
         $user->direccion=$request->direccion;
         $user->tipo_de_usuario=$request->tipos_de_usuarios;
-        $user->estado=$request->estado;
         $user->password =bcrypt($request->password);
       //  $user->tipo_de_usuario = $request->tipos_de_usuarios;
        // $user->estado=$request->estado;
@@ -84,7 +82,7 @@ class UsersController extends Controller
             'correo' => 'required',
             'direccion' => 'required',
             'tipos_de_usuarios' => 'required | in:administrador,cajero,repartidor',
-            'estado' => 'required | in:vigente,no vigente',
+
 
         ]);
 
@@ -96,7 +94,7 @@ class UsersController extends Controller
         $user->correo=$request->correo;
         $user->direccion=$request->direccion;
         $user->tipo_de_usuario=$request->tipos_de_usuarios;
-        $user->estado=$request->estado;
+
 
         $user->save();
 
