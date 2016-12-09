@@ -66,7 +66,7 @@
     //------------Rutas pagos-----------------
     Route::resource('pagos','PagosController');
 
-    Route::get('admin/{id}/destroy',[
+    Route::get('pagos/{id}/destroy',[
         'uses' => 'PagosController@destroy',
         'as' => 'admin.pagos.destroy'
     ]);
