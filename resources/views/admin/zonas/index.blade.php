@@ -1,14 +1,17 @@
 
-@extends('commonusers.template.main')
+@extends('admin.template.main')
 
 @section('title','Lista de Zonas')
 
+
 @section('titlepanel','Lista de Zonas')
-@section('cliente-form')
+
+@section('content')
 
     <a href="{{route('admin.zonas.create')}}" class="btn btn-info">Nueva Zona</a>
     <br>
     <br>
+    <div class="container">
     <table class="table table-striped">
         <thread>
             <th>ID</th>
@@ -36,5 +39,6 @@
         @endforeach
         </tbody>
     </table>
+</div>
     {!! $zona->render() !!}
 @endsection
