@@ -54,7 +54,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini" background="">
 <div class="wrapper">
 
     <!-- Main Header -->
@@ -135,6 +135,16 @@ desired effect
 
     <section>
         <div class="container">
+            @if($errors->has())
+                <div class="alert alert-danger">
+                    <ul>
+                        <strong>Whoops!</strong> Hubo problemas con tus entradas.
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         </div>
 
 
