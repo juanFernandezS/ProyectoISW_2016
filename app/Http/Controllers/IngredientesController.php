@@ -39,8 +39,11 @@ class IngredientesController extends Controller
         return redirect()->route('admin.ingrediente.index');
 
     }
-
     public function show($id){
+        $ingredientes = Ingrediente::find($id);
+        return view('admin.ingredientes.show')->with('ingredientes',$ingredientes);
+    }
+    public function destroy($id){
         $ingredientes = Ingrediente::find($id);
         $ingredientes->delete();
         Flash::error('El ingrediente ha sido borrada!');

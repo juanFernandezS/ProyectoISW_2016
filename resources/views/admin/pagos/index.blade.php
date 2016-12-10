@@ -2,7 +2,7 @@
 @section('titulo','Lista ingredientes')
 @section('content')
 
-        <a href="{{route('admin.pagos.create')}}" class="btn btn-info"> Registar nuevo ingrediente</a><hr>
+        <a href="{{route('admin.pagos.create')}}" class="btn btn-info"> Registar nuevo tipo de pago</a><hr>
         <table class="table table-striped">
             <thead>
                 <th>ID</th>
@@ -19,7 +19,7 @@
                         <td>{!! $pago->id !!}</td>
                         <td> {!!$pago->tipo_pago !!}</td>
                         <td><a href=" {{ route('admin.pagos.edit', $pago->id) }} " class="btn btn-warning"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                     <a href=" {{ route('admin.pagos.destroy', $pago->id) }}" class="btn btn-danger" onclick="return confirm('seguro que quieres eliminarlo?')"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
+                            <a href=" {{ route('admin.pagos.show', $pago->id) }}" class="btn btn-danger" ><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
                     </tr>
 
 

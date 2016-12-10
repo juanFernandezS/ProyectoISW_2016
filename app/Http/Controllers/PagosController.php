@@ -26,25 +26,31 @@ class PagosController extends Controller
     public function store(Request $request)
     {
         $this->validate( $request,[
-            'tipo_pago'=>'required |alpha|unique:pagos,tipo_pago|max:400',
+            'tipo_pago'=>'required |alpha|unique:pagos,tipo_pago',
         ]);
 
         $pagos = new Pago($request->all());
         $pagos->tipo_pago=$request->tipo_pago;
         $pagos->save();
 
-        Flash::success('El ingrediente '. $pagos->tipo_nombre .' se a ingresado con exito');
+        Flash::success('El tipo de pago '. $pagos->tipo_pago .' se a agregado con exito');
         return redirect()->route('admin.pagos.index');
 
     }
 
     public function show($id)
     {
-        $pagos = Pago::find($id);
-        $pagos->delete();
-        Flash::error('La forma de pago fue borrada!');
-        return redirect()->route('admin.pagos.index');
+        $pago = Pago::find($id);
+        return view('admin.pagos.show')->with('pago',$pago);
+    }
 
+    public function destroy($id){
+        $pago= Pago::find($id);
+        $pago->delete();
+
+        Flash::error('La ctipo de pago ha sido borrado!');
+
+        return redirect()->route('admin.pagos.index');
     }
 
     public function edit($id)

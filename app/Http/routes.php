@@ -15,7 +15,6 @@ Route::group(['prefix' => 'commonusers'], function(){
 });
 
 
-
 Route::group(['prefix' => 'admin'],function(){
 
     //------------Rutas ingredientes--------------
@@ -23,8 +22,13 @@ Route::group(['prefix' => 'admin'],function(){
     Route::resource('ingrediente','IngredientesController');
 
     Route::get('ingrediente/{id}/destroy',[
-        'ingredientes' => 'IngredientesController@destroy',
+        'uses' => 'IngredientesController@destroy',
         'as' =>'admin.ingredientes.destroy']);
+
+    Route::get('ingredientes/{id}/show', [
+        'uses' => 'IngredientesController@show',
+        'as'   => 'admin.ingredientes.show'
+    ]);
 
     //--------------Rutas Zona----------------------
     Route::resource('zonas','ZonasController');
