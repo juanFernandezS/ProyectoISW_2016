@@ -73,6 +73,10 @@
         //--------------Rutas Estados-------
         Route::resource('estados','EstadosController');
 
+        Route::get('estados/{id}/show', [
+            'uses' => 'EstadosController@show',
+            'as'   => 'admin.estados.show']);
+
 
 
 
