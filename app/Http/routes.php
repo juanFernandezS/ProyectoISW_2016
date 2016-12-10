@@ -1,34 +1,28 @@
 <?php
 
 
-Route::group(['prefix' => 'commonusers'], function(){
+    Route::group(['prefix' => 'commonusers'], function(){
 
     //--------------Rutas Clientes----------------
 
     Route::resource('clientes','ClientesController');
-
+    
     Route::get('clientes/{id}/destroy',[
         'uses'  => 'ClientesController@destroy',
         'as'    => 'commonusers.clientes.destroy'
     ]);
+    
+    });
 
-});
-
-
-Route::group(['prefix' => 'admin'],function(){
+    Route::group(['prefix' => 'admin'],function(){
 
     //------------Rutas ingredientes--------------
 
     Route::resource('ingrediente','IngredientesController');
 
-    Route::get('ingrediente/{id}/destroy',[
-        'uses' => 'IngredientesController@destroy',
-        'as' =>'admin.ingredientes.destroy']);
-
-    Route::get('ingredientes/{id}/show', [
-        'uses' => 'IngredientesController@show',
-        'as'   => 'admin.ingredientes.show'
-    ]);
+        Route::get('ingrediente/{id}/destroy',[
+            'uses' => 'IngredientesController@destroy',
+            'as' =>'admin.ingredientes.destroy']);
 
     //--------------Rutas Zona----------------------
     Route::resource('zonas','ZonasController');
@@ -39,27 +33,27 @@ Route::group(['prefix' => 'admin'],function(){
     ]);
 
     //---------------Rutas coberturas---------------
-    Route::resource('coberturas','CoberturasController');
+        Route::resource('coberturas','CoberturasController');
 
-    Route::get('coberturas/{id}/show', [
-        'uses' => 'CoberturasController@show',
-        'as'   => 'admin.coberturas.show'
-    ]);
+        Route::get('coberturas/{id}/show', [
+            'uses' => 'CoberturasController@show',
+            'as'   => 'admin.coberturas.show'
+        ]);
 
-    Route::get('coberturas/{id}/destroy',[
-        'uses' => 'CoberturasController@destroy',
-        'as' => 'admin.coberturas.destroy'
-    ]);
+        Route::get('coberturas/{id}/destroy',[
+            'uses' => 'CoberturasController@destroy',
+            'as' => 'admin.coberturas.destroy'
+        ]);
 
-    Route::get('coberturas/{id}/guardarHistorial',[
-        'uses' => 'CoberturasController@guardarHistorial',
-        'as' => 'admin.coberturas.guardarHistorial'
-    ]);
+        Route::get('coberturas/{id}/guardarHistorial',[
+            'uses' => 'CoberturasController@guardarHistorial',
+            'as' => 'admin.coberturas.guardarHistorial'
+        ]);
 
-    Route::get('informes/historialPrecios',[
-        'uses'=> 'CoberturasController@mostrarHistorial',
-        'as' => 'admin.historial.historialPrecios'
-    ]);
+        Route::get('informes/historialPrecios',[
+           'uses'=> 'CoberturasController@mostrarHistorial',
+            'as' => 'admin.historial.historialPrecios'
+        ]);
 
     //-------------Rutas Usuarios----------------
     Route::resource('users','UsersController');
@@ -104,4 +98,3 @@ Route::group(['prefix' => 'repa'],function(){
         'uses' => 'EstadoController@show',
         'as' =>'repa.estadoPedidos.show']);
 });
-

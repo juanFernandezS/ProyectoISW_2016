@@ -117,10 +117,10 @@ desired effect
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/admin/users">Ver listado</a></li>
-                        <li><a href="/admin/users/create">Crear nuevo</a></li>
-                        <li><a href="/admin/users">Modificar datos</a></li>
-                        <li><a href="/admin/users">Eliminar usuario</a></li>
+                        <li><a href="{{URL::to('admin/users')}}">Ver listado</a></li>
+                        <li><a href="{{URL::to('admin/users/create')}}">Crear nuevo</a></li>
+                        <li><a href="{{URL::to('admin/users')}}">Modificar datos</a></li>
+                        <li><a href="{{URL::to('admin/users')}}">Eliminar usuario</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -137,10 +137,10 @@ desired effect
             			</span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="/admin/ingredientes">Ver listado</a></li>
-                                <li><a href="/admin/ingredientes/create">Crear nuevo</a></li>
-                                <li><a href="/admin/ingerdientes">Modificar datos</a></li>
-                                <li><a href="/admin/ingredientes">Eliminar ingrediente</a></li>
+                                <li><a href="{{URL::to('admin/ingrediente')}}">Ver listado</a></li>
+                                <li><a href="{{URL::to('admin/ingrediente/create')}}">Crear nuevo</a></li>
+                                <li><a href="{{URL::to('admin/ingerdiente')}}">Modificar datos</a></li>
+                                <li><a href="{{URL::to('admin/ingrediente')}}">Eliminar ingrediente</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -150,10 +150,10 @@ desired effect
             			</span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="/admin/coberturas">Ver listado</a></li>
-                                <li><a href="/admin/coberturas/create">Crear nuevo</a></li>
-                                <li><a href="/admin/coberturas">Modificar datos</a></li>
-                                <li><a href="/admin/coberturas">Eliminar Cobertura</a></li>
+                                <li><a href="{{URL::to('admin/coberturas')}}">Ver listado</a></li>
+                                <li><a href="{{URL::to('admin/coberturas/create')}}">Crear nuevo</a></li>
+                                <li><a href="{{URL::to('admin/coberturas')}}">Modificar datos</a></li>
+                                <li><a href="{{URL::to('admin/coberturas')}}">Eliminar Cobertura</a></li>
                             </ul>
                         </li>
 
@@ -166,10 +166,10 @@ desired effect
             			</span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/admin/zonas">Ver listado</a></li>
-                        <li><a href="/admin/zonas/create">Crear nuevo</a></li>
-                        <li><a href="/admin/zonas">Modificar datos</a></li>
-                        <li><a href="/admin/zonas">Eliminar Zona</a></li>
+                        <li><a href="{{URL::to('admin/zonas')}}">Ver listado</a></li>
+                        <li><a href="{{URL::to('admin/zonas/create')}}">Crear nuevo</a></li>
+                        <li><a href="{{URL::to('admin/zonas')}}">Modificar datos</a></li>
+                        <li><a href="{{URL::to('admin/zonas')}}">Eliminar Zona</a></li>
                     </ul>
                 </li>
                 </li>
@@ -180,15 +180,15 @@ desired effect
             		</span>
                     </a>
                         <ul class="treeview-menu">
-                           <li><a href="/commonusers/clientes">Ver listado</a></li>
-                           <li><a href="/commonusers/clientes/create">Crear nuevo</a></li>
-                           <li><a href="/commonusers/clientes">Modificar datos</a></li>
-                           <li><a href="/commonusers/clientes">Eliminar cliente</a></li>
+                           <li><a href="{{URL::to('commonusers/clientes')}}">Ver listado</a></li>
+                           <li><a href="{{URL::to('commonusers/clientes/create')}}">Crear nuevo</a></li>
+                           <li><a href="{{URL::to('commonusers/clientes')}}">Modificar datos</a></li>
+                           <li><a href="{{URL::to('commonusers/clientes')}}">Eliminar cliente</a></li>
                         </ul>
                 </li>
                 <li class="header">Informes</li>
                 <li class="treeview"><a href="#"><i class="fa fa-file-pdf-o"></i> <span>Ventas del dia</span></a></li>
-                <li class="treeview"><a href="/admin/informes/historialPrecios"><i class="fa fa-file-pdf-o"></i> <span>Historial de precios</span></a></li>
+                <li class="treeview"><a href="{{URL::to('admin/informes/historialPrecios')}}"><i class="fa fa-file-pdf-o"></i> <span>Historial de precios</span></a></li>
 
             </ul>
             <!-- /.sidebar-menu -->
