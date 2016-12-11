@@ -48,7 +48,7 @@ class PagosController extends Controller
         $pago= Pago::find($id);
         $pago->delete();
 
-        Flash::error('La ctipo de pago ha sido borrado!');
+        Flash::error('El tipo de pago ha sido borrado!');
 
         return redirect()->route('admin.pagos.index');
     }
