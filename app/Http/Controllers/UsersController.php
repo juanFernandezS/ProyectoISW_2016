@@ -56,13 +56,21 @@ class UsersController extends Controller
         return redirect()->route('admin.users.index');
     }
     public function show($id){
-        $user = User::find($id);
-      $user ->delete();
-        return redirect()->route('admin.users.index');
+        $users= User::find($id);
+        return view('admin.users.show')->with('user', $users);
 
 
         //Flash::Warning('El usuario' . $user->nombre . 'ha sido borrado con exito');
         //return redirect()->route('admin.users.index ');
+    }
+    public function destroy($id)
+    {
+        $users= User::find($id);
+        $users->delete();
+
+        Flash::error('El Usuario ha sido borrada!');
+
+        return redirect()->route('admin.users.index');
     }
     public function edit($id){
 

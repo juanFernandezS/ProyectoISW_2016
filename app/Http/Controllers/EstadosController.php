@@ -43,11 +43,17 @@ class EstadosController extends Controller
         $estados= Estado::find($id);
         return view('admin.estados.show')->with('estado', $estados);
 
-
-        //Flash::Warning('El usuario' . $user->nombre . 'ha sido borrado con exito');
-        //return redirect()->route('admin.users.index ');
     }
 
+    public function destroy($id)
+    {
+        $estados= Estado::find($id);
+        $estados->delete();
+
+        Flash::error('El Estado ha sido borrada!');
+
+        return redirect()->route('admin.estados.index');
+    }
 
     public function edit($id)
     {
