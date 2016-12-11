@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableClientes extends Migration
+class CreateTableEstadoComanda extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,9 @@ class CreateTableClientes extends Migration
      */
     public function up()
     {
-        Schema::create('clientes', function (Blueprint $table) {
+        Schema::create('estado_comanda', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('telefono')->unique();
-            $table->string('nombre');
-            $table->text('direccion');
-            $table->integer('id_zona');
-            $table->foreign('id_zona')->references('id')->on('zonas');
+            $table->string('estado');
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ class CreateTableClientes extends Migration
      */
     public function down()
     {
-        Schema::drop('clientes');
+        Schema::drop('estado_comanda');
     }
 }
