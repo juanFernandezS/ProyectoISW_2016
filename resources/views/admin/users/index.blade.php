@@ -13,6 +13,7 @@
         <th>Correo</th>
         <th>Direccion</th>
         <th>Tipo de usuario</th>
+        <th>Estado</th>
         <th>Accion</th>
 
 
@@ -45,11 +46,14 @@
                         @endif
 
                 </td>
-                <td>{!! $user->estado !!}</td>
-                <td>{!! $user->accion !!}</td>
-                <td><a href="{{route('admin.users.edit', $user->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                    <a href="{{route('admin.users.destroy', $user->id)}}"  class="btn btn-danger"><span onclick="return confirm ('seguro que quieres eliminarlo')" class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                <td>
+                {{ App\Estado::find($user->id_estado)->nombre }}
 
+                </td>
+
+                <td><a href="{{route('admin.users.edit', $user->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                    <a href="{{route('admin.users.show', $user->id)}}"  class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                </td>
             </tr>
         @endforeach
         </tbody>

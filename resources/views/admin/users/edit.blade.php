@@ -41,6 +41,14 @@
         {!! Form::text('direccion', null,['class' => 'form-control','placeholder' => ''] ) !!}
     </div>
 
+    <div>
+    {!! Form::select('id_estado',[
+       '1'   =>  'Habilitado',
+       '2'   =>  'No habilitado',
+       '3'  =>  'Full-Time',
+       '4'   =>  'Part-time',
+        ],$user->id_estado, ['class'=>'form-control']) !!}
+</div>
 
     <div class="form-group">
         {!! Form::label('tipos_de_usarios','Tipo') !!}

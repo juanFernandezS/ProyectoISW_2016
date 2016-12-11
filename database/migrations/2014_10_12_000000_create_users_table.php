@@ -14,12 +14,14 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('rut');
+            $table->string('rut')->uniqued();
             $table->string('nombre');
             $table->string('telefono');
             $table->string('correo')->unique();
             $table->string('direccion');
             $table->enum('tipo_de_usuario',['administrador','cajero','repartidor'])->defaul('cajero','repartidor');
+            $table->integer('id_estado');
+            $table->foreign('id_estado')->references('id')->on('estados');
             $table->string('password');
 
 

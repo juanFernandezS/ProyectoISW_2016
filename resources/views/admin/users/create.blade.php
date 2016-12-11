@@ -44,18 +44,28 @@
       {!! Form::text('direccion', null,['class' => 'form-control','placeholder' => 'Maipu #193 Dpto B','required'] ) !!}
   </div>
 
+
+  <div>{!! Form::label('id_estado', 'estado',['class'=>'control-label']) !!}
+
+      <select class="form-group" id="id_estado" name="id_estado">
+          @foreach(\App\Estado::all() as $estado)
+              <option value="{{ $estado->id }}">{{$estado->nombre}}</option>
+          @endforeach
+      </select>
+  </div>
+
   <div class="form-group">
       {!! Form::label('password','Contraseña') !!}
       {!! Form::password('password',['class' => 'form-control','placeholder' => '*********','required'] ) !!}
   </div>
 
+
   <div class="form-group">
       {!! Form::label('tipos_de_usarios','Tipo') !!}
       {!! Form:: select('tipos_de_usuarios',[''=>'Seleccione un tipo','administrador'=>'adminstrador','cajero'=>'cajero','repartidor'=>'repartidor'])!!}
         &nbsp;
+</div>
 
-
-  </div>
 
 
   <div class="form-group">
