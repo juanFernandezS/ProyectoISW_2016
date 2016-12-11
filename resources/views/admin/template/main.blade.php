@@ -136,6 +136,19 @@ desired effect
                     </ul>
                 </li>
                 <li class="treeview">
+                    <a href="#"><i class="fa fa-folder"></i> <span>Estados de Usuario</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{URL::to('admin/estados')}}">Ver estados</a></li>
+                        <li><a href="{{URL::to('admin/estados/create')}}">Crear nuevo</a></li>
+                        <li><a href="{{URL::to('admin/estados')}}">Modificar datos</a></li>
+                        <li><a href="{{URL::to('admin/estados')}}">Eliminar estado</a></li>
+                     </ul>
+                </li>
+                <li class="treeview">
                     <a href="#"><i class="fa fa-folder"></i> <span>Productos</span>
                         <span class="pull-right-container">
             	  	<i class="fa fa-angle-left pull-right"></i>
@@ -170,6 +183,19 @@ desired effect
                         </li>
 
                     </ul>
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-folder"></i> <span>Tipo de pago</span>
+                            <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{URL::to('admin/pagos')}}">Ver tipos de pagos</a></li>
+                            <li><a href="{{URL::to('admin/pagos/create')}}">Crear nuevo</a></li>
+                            <li><a href="{{URL::to('admin/pagos')}}">Modificar datos</a></li>
+                            <li><a href="{{URL::to('admin/pagos')}}">Eliminar pago</a></li>
+                        </ul>
+                    </li>
 
                 <li class="treeview">
                     <a href="#"><i class="fa fa-folder"></i> <span>Zona reparto</span>
@@ -186,7 +212,22 @@ desired effect
                 </li>
                 </li>
                 @endif
+
                 @if(Auth::user()->tipo_de_usuario == 'administrador' OR Auth::user()->tipo_de_usuario == 'cajero')
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-folder"></i> <span>Comanda</span>
+                            <span class="pull-right-container">
+            	  	<i class="fa fa-angle-left pull-right"></i>
+            		</span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{URL::to('#')}}">Ver listado</a></li>
+                            <li><a href="{{URL::to('#')}}">Crear nueva</a></li>
+                            <li><a href="{{URL::to('#')}}">Modificar datos</a></li>
+                            <li><a href="{{URL::to('#')}}">Eliminar cliente</a></li>
+                        </ul>
+                    </li>
+
                 <li class="treeview">
                     <a href="#"><i class="fa fa-folder"></i> <span>Datos clientes</span>
                         <span class="pull-right-container">
@@ -201,9 +242,12 @@ desired effect
                         </ul>
                 </li>
                 @endif
-                @if(Auth::user()->tipo_de_usuario == 'administrador')
+
+                @if(Auth::user()->tipo_de_usuario == 'administrador' OR Auth::user()->tipo_de_usuario == 'cajero')
                 <li class="header">Informes</li>
-                <li class="treeview"><a href="#"><i class="fa fa-file-pdf-o"></i> <span>Ventas del dia</span></a></li>
+                <li class="treeview"><a href="#"><i class="fa fa-file-pdf-o"></i> <span>Resumen ventas del dia</span></a></li>
+                @endif
+                @if(Auth::user()->tipo_de_usuario == 'administrador')
                 <li class="treeview"><a href="{{URL::to('admin/informes/historialPrecios')}}"><i class="fa fa-file-pdf-o"></i> <span>Historial de precios</span></a></li>
                 @endif
             </ul>
