@@ -1,12 +1,12 @@
 @extends('admin.template.main')
-@section('titulo','Lista ingredientes')
+@section('titulo','Lista de tipo de pago')
 @section('content')
 
         <a href="{{route('admin.pagos.create')}}" class="btn btn-info"> Registar nuevo tipo de pago</a><hr>
         <table class="table table-striped">
             <thead>
                 <th>ID</th>
-                <th>tipo de </th>
+                <th>tipo de pago</th>
                  <th>Accion</th>
             </thead>
            <tbody>
