@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableCoberturas extends Migration
+class CreateTableEstados extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,9 @@ class CreateTableCoberturas extends Migration
      */
     public function up()
     {
-        Schema::create('coberturas', function (Blueprint $table) {
+        Schema::create('estados', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->float('precio');
-            $table->boolean('historial')->false;
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ class CreateTableCoberturas extends Migration
      */
     public function down()
     {
-        Schema::drop('coberturas');
+        Schema::drop('estados');
     }
 }

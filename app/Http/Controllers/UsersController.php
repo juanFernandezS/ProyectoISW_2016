@@ -20,7 +20,7 @@ class UsersController extends Controller
         $validacion = Validator::make($input,$rules);
         if($validacion->fails()){
             Flash::warning('El usuario '. $users->nombre. ' a sido editado con exito!');
-            return redirect()->to('admin.users.create\'')->withInput()->withErrors($validacion->messages());
+            return redirect()->to('admin.users.create')->withInput()->withErrors($validacion->messages());
         }
 
 
@@ -36,7 +36,7 @@ class UsersController extends Controller
             'correo' => 'required | unique:users,correo',
             'direccion' => 'required',
             'tipos_de_usuarios' => 'required | in:administrador,cajero,repartidor',
-            'estado' => 'required | in:vigente,no vigente',
+            'id_estado'=>'required',
             'password' => 'required'
         ]);
 
@@ -47,10 +47,8 @@ class UsersController extends Controller
         $user->correo=$request->correo;
         $user->direccion=$request->direccion;
         $user->tipo_de_usuario=$request->tipos_de_usuarios;
-        $user->estado=$request->estado;
+        $user->id_estado=$request->id_estado;
         $user->password =bcrypt($request->password);
-      //  $user->tipo_de_usuario = $request->tipos_de_usuarios;
-       // $user->estado=$request->estado;
 
         $user->save();
         Flash::success('El usuario '. $user->nombre .' se a ingresado con exito');
@@ -58,13 +56,21 @@ class UsersController extends Controller
         return redirect()->route('admin.users.index');
     }
     public function show($id){
-        $user = User::find($id);
-      $user ->delete();
-        return redirect()->route('admin.users.index');
+        $users= User::find($id);
+        return view('admin.users.show')->with('user', $users);
 
 
         //Flash::Warning('El usuario' . $user->nombre . 'ha sido borrado con exito');
         //return redirect()->route('admin.users.index ');
+    }
+    public function destroy($id)
+    {
+        $users= User::find($id);
+        $users->delete();
+
+        Flash::error('El Usuario ha sido borrada!');
+
+        return redirect()->route('admin.users.index');
     }
     public function edit($id){
 
@@ -79,12 +85,15 @@ class UsersController extends Controller
 
         $this->validate($request,[
             'rut' => 'required',
-            'nombre' => 'required | max:40' ,
+            'nombre' => 'required  | max:40' ,
             'telefono' =>'required',
             'correo' => 'required',
             'direccion' => 'required',
             'tipos_de_usuarios' => 'required | in:administrador,cajero,repartidor',
-            'estado' => 'required | in:vigente,no vigente',
+            'id_estado'=>'required',
+            'password' => 'required'
+
+
 
         ]);
 
@@ -96,7 +105,9 @@ class UsersController extends Controller
         $user->correo=$request->correo;
         $user->direccion=$request->direccion;
         $user->tipo_de_usuario=$request->tipos_de_usuarios;
-        $user->estado=$request->estado;
+        $user->id_estado=$request->id_estados;
+        $user->password =bcrypt($request->password);
+
 
         $user->save();
 

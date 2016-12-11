@@ -16,6 +16,7 @@
         <tbody>
 
             @foreach($coberturas as $cobertura)
+                @if($cobertura->historial!=true)
                 <tr data-id="{{$cobertura->id}}" data-nombre="{{ $cobertura->nombre }}">
 
                     <td>{{ $cobertura->id }}</td>
@@ -24,8 +25,10 @@
 
                     <td><a href=" {{ route('admin.coberturas.edit', $cobertura->id) }} " class="btn btn-warning"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                         <a href=" {{ route('admin.coberturas.show', $cobertura->id) }}" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-                        </td>
+                        <a href=" {{ route('admin.coberturas.guardarHistorial', $cobertura->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                    </td>
                 </tr>
+                @endif
             @endforeach
         </tbody>
     </table>
