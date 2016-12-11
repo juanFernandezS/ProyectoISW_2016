@@ -10,6 +10,14 @@ use Laracasts\Flash\Flash;
 
 class UsersController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function index(){
         $users= User::orderBy('id','ASC')->paginate(5);
         return view('admin.users.index')->with('users', $users);

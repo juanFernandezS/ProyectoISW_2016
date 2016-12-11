@@ -103,18 +103,18 @@ desired effect
 
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu">
-                <li class="active"><a href="/"><i class="fa fa-home"></i> <span>Inicio</span></a></li>
+                <li class="active"><a href="{{URL::to('/')}}"><i class="fa fa-home"></i> <span>Inicio</span></a></li>
 
                 <!-- Optionally, you can add icons to the links -->
-
                 <!--li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li-->
 
+                @if(Auth::user()->tipo_de_usuario == 'administrador')
                 <li class="header">Adminstrar</li>
                 <li class="treeview">
                     <a href="#"><i class="fa fa-folder"></i> <span>Usuarios</span>
                         <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{URL::to('admin/users')}}">Ver listado</a></li>
@@ -173,6 +173,8 @@ desired effect
                     </ul>
                 </li>
                 </li>
+                @endif
+                @if(Auth::user()->tipo_de_usuario == 'administrador' OR Auth::user()->tipo_de_usuario == 'cajero')
                 <li class="treeview">
                     <a href="#"><i class="fa fa-folder"></i> <span>Datos clientes</span>
                         <span class="pull-right-container">
@@ -186,10 +188,12 @@ desired effect
                            <li><a href="{{URL::to('commonusers/clientes')}}">Eliminar cliente</a></li>
                         </ul>
                 </li>
+                @endif
+                @if(Auth::user()->tipo_de_usuario == 'administrador')
                 <li class="header">Informes</li>
                 <li class="treeview"><a href="#"><i class="fa fa-file-pdf-o"></i> <span>Ventas del dia</span></a></li>
                 <li class="treeview"><a href="{{URL::to('admin/informes/historialPrecios')}}"><i class="fa fa-file-pdf-o"></i> <span>Historial de precios</span></a></li>
-
+                @endif
             </ul>
             <!-- /.sidebar-menu -->
         </section>
