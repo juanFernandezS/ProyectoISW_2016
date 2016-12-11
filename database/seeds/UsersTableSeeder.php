@@ -18,6 +18,7 @@ class UsersTableSeeder extends Seeder
             'correo' => 'admin@gmail.com',
             'direccion' => 'maipu 193 b',
             'tipo_de_usuario' => 'administrador',
+            'id_estado' => '1',
             'password' => bcrypt('admin'),
             'created_at' => 'now',
             'updated_at' => 'now',
