@@ -16,7 +16,7 @@
         </div>
     @endif
     <div class="form-group">
-        {!! Form::label('tipo_pago','tipo de pago') !!}
+        {!! Form::label('tipo_pago','Tipo de pago(remplazar el espacio con letra en mayuscula)') !!}
 
         {!! Form::text('tipo_pago',null,['class' =>'form-control','placeholder'=>'Ingresar tipo de pago']) !!}
     </div>
