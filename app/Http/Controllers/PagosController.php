@@ -66,7 +66,7 @@ class PagosController extends Controller
         $aux= Pago::all();
 
         $this->validate( $request,[
-            'tipo_pago'=>'required |alpha|unique:pagos,tipo_pago|max:400',
+            'tipo_pago'=>'required |alpha|unique:pagos,tipo_pago',
         ]);
 
         $pagos = Pago::find($id);

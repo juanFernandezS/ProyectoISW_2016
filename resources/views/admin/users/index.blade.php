@@ -46,6 +46,10 @@
                         @endif
 
                 </td>
+                <td>
+                {{ App\Estado::find($user->id_estado)->nombre }}
+
+                </td>
 
                 <td><a href="{{route('admin.users.edit', $user->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                     <a href="{{route('admin.users.show', $user->id)}}"  class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
