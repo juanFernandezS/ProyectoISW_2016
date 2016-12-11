@@ -18,7 +18,7 @@ class CreateTableClientes extends Migration
             $table->string('nombre');
             $table->text('direccion');
             $table->integer('id_zona')->unsigned();
-            $table->foreign('id_zona')->references('id')->on('zonas');
+            $table->foreign('id_zona')->references('id')->on('zonas')->onDelete('cascade');
             $table->timestamps();
         });
     }
