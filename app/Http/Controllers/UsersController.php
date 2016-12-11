@@ -44,6 +44,7 @@ class UsersController extends Controller
             'correo' => 'required | unique:users,correo',
             'direccion' => 'required',
             'tipos_de_usuarios' => 'required | in:administrador,cajero,repartidor',
+            'estado' => 'required | in:vigente,no vigente',
             'password' => 'required'
         ]);
 
@@ -54,6 +55,7 @@ class UsersController extends Controller
         $user->correo=$request->correo;
         $user->direccion=$request->direccion;
         $user->tipo_de_usuario=$request->tipos_de_usuarios;
+        $user->estado=$request->estado;
         $user->password =bcrypt($request->password);
       //  $user->tipo_de_usuario = $request->tipos_de_usuarios;
        // $user->estado=$request->estado;
@@ -64,13 +66,21 @@ class UsersController extends Controller
         return redirect()->route('admin.users.index');
     }
     public function show($id){
-        $user = User::find($id);
-      $user ->delete();
-        return redirect()->route('admin.users.index');
+        $users= User::find($id);
+        return view('admin.users.show')->with('user', $users);
 
 
         //Flash::Warning('El usuario' . $user->nombre . 'ha sido borrado con exito');
         //return redirect()->route('admin.users.index ');
+    }
+    public function destroy($id)
+    {
+        $users= User::find($id);
+        $users->delete();
+
+        Flash::error('El Usuario ha sido borrada!');
+
+        return redirect()->route('admin.users.index');
     }
     public function edit($id){
 
@@ -90,7 +100,7 @@ class UsersController extends Controller
             'correo' => 'required',
             'direccion' => 'required',
             'tipos_de_usuarios' => 'required | in:administrador,cajero,repartidor',
-
+            'estado' => 'required | in:vigente,no vigente',
 
         ]);
 
@@ -102,7 +112,7 @@ class UsersController extends Controller
         $user->correo=$request->correo;
         $user->direccion=$request->direccion;
         $user->tipo_de_usuario=$request->tipos_de_usuarios;
-
+        $user->estado=$request->estado;
 
         $user->save();
 

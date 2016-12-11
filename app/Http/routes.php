@@ -58,9 +58,9 @@
         //-------------Rutas Usuarios----------------
         Route::resource('users','UsersController');
 
-        Route::get('user/{id}/destroy',[
+        Route::get('users/{id}/destroy',[
             'uses' => 'UsersController@destroy',
-            'as' => 'admin.user.destroy'
+            'as' => 'admin.users.destroy'
         ]);
 
         //------------Rutas pagos-----------------
@@ -72,6 +72,14 @@
         ]);
         //--------------Rutas Estados-------
         Route::resource('estados','EstadosController');
+
+
+
+        Route::get('estados/{id}/destroy',[
+            'uses' => 'EstadosController@destroy',
+            'as' => 'admin.estados.destroy'
+        ]);
+
 
 
 

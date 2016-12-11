@@ -7,6 +7,7 @@
         <thead>
         <th>ID</th>
         <th>Nombre</th>
+        <th>Accion</th>
         </thead>
         <tbody>
         <div>
@@ -18,7 +19,7 @@
                 <td>{!! $estado->id !!}</td>
                 <td> {!! $estado->nombre !!}</td>
                 <td><a href=" {{ route('admin.estados.edit', $estado->id) }} " class="btn btn-warning"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                    <a href=" {{ route('admin.estados.destroy', $estado->id) }}" class="btn btn-danger" onclick="return confirm('seguro que quieres eliminarlo?')"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
+                    <a href=" {{ route('admin.estados.show', $estado->id) }}" class="btn btn-danger" ><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
             </tr>
 
 
