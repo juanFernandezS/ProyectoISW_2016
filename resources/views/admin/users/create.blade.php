@@ -54,6 +54,8 @@
       {!! Form:: select('tipos_de_usuarios',[''=>'Seleccione un tipo','administrador'=>'adminstrador','cajero'=>'cajero','repartidor'=>'repartidor'])!!}
         &nbsp;
 
+      {!! Form::label('estado','Estados') !!}
+      {!! Form:: select('estado',['vigente'=>'vigente','no vigente'=>'no vigente'])!!}
 
   </div>
 

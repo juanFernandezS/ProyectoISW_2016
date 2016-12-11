@@ -13,6 +13,7 @@
         <th>Correo</th>
         <th>Direccion</th>
         <th>Tipo de usuario</th>
+        <th>Estado</th>
         <th>Accion</th>
 
 

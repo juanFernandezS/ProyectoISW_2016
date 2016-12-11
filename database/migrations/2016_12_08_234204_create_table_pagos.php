@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTablePedidoIngrediente extends Migration
+class CreateTablePagos extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,9 @@ class CreateTablePedidoIngrediente extends Migration
      */
     public function up()
     {
-        Schema::create('pedido_ingrediente', function (Blueprint $table) {
+        Schema::create('pagos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_pedido');
-            $table->integer('id_ing');
-            $table->foreign('id_pedido')->references('id')->on('pedidos');
-            $table->foreign('id_ing')->references('id')->on('ingredientes');
+            $table->string('tipo_pago');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreateTablePedidoIngrediente extends Migration
      */
     public function down()
     {
-        Schema::drop('tiene');
+        Schema::drop('pagos');
     }
 }
