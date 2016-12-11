@@ -17,23 +17,6 @@ class EstadoTableSeeder extends Seeder
             'updated_at' => 'now'
         ));
 
-        \DB::table('estados')->insert(array(
-            'nombre'  => 'No Habilitado',
-            'created_at' => 'now',
-            'updated_at' => 'now'
-        ));
-
-        \DB::table('estados')->insert(array(
-            'nombre'  => 'Con lisencia',
-            'created_at' => 'now',
-            'updated_at' => 'now'
-        ));
-
-        \DB::table('estados')->insert(array(
-            'nombre'  => 'Vacaciones',
-            'created_at' => 'now',
-            'updated_at' => 'now'
-        ));
 
     }
 }
