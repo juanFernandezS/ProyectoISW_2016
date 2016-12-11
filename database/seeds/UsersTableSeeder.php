@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder
             'id_estado' => '1',
             'password' => bcrypt('admin'),
             'created_at' => 'now',
-            'updated_at' => 'now',
+            'updated_at' => 'now'
         ]);
     }
 }
