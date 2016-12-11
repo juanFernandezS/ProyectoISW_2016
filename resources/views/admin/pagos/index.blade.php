@@ -29,6 +29,7 @@
 
         </table>
 
+
         {!! $pagos->render() !!}
 
 @endsection
