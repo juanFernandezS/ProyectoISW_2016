@@ -95,7 +95,7 @@ Route::post('auth/login','Auth\AuthController@postLogin');
 Route::get('auth/logout','Auth\AuthController@logout');
 
 
-Route::group(['prefix' => 'repa'],function(){
+/*Route::group(['prefix' => 'repa'],function(){
     Route::resource('estadoPedidos','EstadoController');
 
     Route::get('estadoPedidos/{id}/destroy',[
@@ -105,4 +105,4 @@ Route::group(['prefix' => 'repa'],function(){
     Route::get('estadoPedidos/{id}/show',[
         'uses' => 'EstadoController@show',
         'as' =>'repa.estadoPedidos.show']);
-});
+});*/

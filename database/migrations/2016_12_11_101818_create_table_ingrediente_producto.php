@@ -17,8 +17,8 @@ class CreateTableIngredienteProducto extends Migration
             $table->integer('id_ingrediente')->unsigned();
             $table->integer('id_producto')->unsigned();
 
-            $table->foreign('id_ingrediente')->references('id')->on('ingredientes');
-            $table->foreign('id_producto')->references('id')->on('productos');
+            $table->foreign('id_ingrediente')->references('id')->on('ingredientes')->onDelete('cascade');
+            $table->foreign('id_producto')->references('id')->on('productos')->onDelete('cascade');
             $table->timestamps();
         });
     }
