@@ -27,17 +27,7 @@
                     <td>{{$item->nombre}}</td>
                     <td>{{$item->direccion}}</td>
                     <td>
-                        @if($item->id_zona==1)
-                             Concepcion
-                        @elseif($item->id_zona==2)
-                                Collao
-                        @elseif($item->id_zona==3)
-                                Barrio Norte
-                        @elseif($item->id_zona==4)
-                            Hualpen
-                        @elseif($item->id_zona==5)
-                            Talcahuano
-                            @endif
+                        {{App\Zona::find($item->id_zona)->nombre}}
 
                     </td>
                     <td>
@@ -57,5 +47,7 @@
             </tbody>
           </table>
     </div>
+
+
     {!! $cliente->render() !!}
     @endsection

@@ -1,12 +1,11 @@
-@extends('commonusers.template.main')
+@extends('admin.template.main')
 
 @section('title','Editar Cliente ')
 
 @section('titlepanel','Editar Cliente: '.$cliente->nombre)
 
 
-
-@section('cliente-form')
+@section('content')
 
     @if($errors->has())
         <div class="alert alert-danger">
@@ -39,14 +38,12 @@
 
     <br>
 
+    <select class="form-control" id="id_zona" name="id_zona">
 
-    {!! Form::select('id_zona',[
-   '1'   =>  'Concepcion',
-   '2'   =>  'Collao',
-   '3'  =>  'Barrio Norte',
-   '4'   =>  'Hualpen',
-   '5'  =>  'Talcahuano',
-    ],$cliente->id_zona, ['class'=>'form-control']) !!}
+        @foreach(\App\Zona::all() as $zona)
+            <option value="{{$zona->id }}">{{$zona->nombre}}</option>
+        @endforeach
+    </select>
 
 
 
@@ -57,11 +54,18 @@
     </div>
 
     {!! Form::close() !!}
-
+    <script type="text/javascript">var centreGot = false;</script>{!!$map['js']!!}
+    <div class="col-xs-12 col-md-8">
+    <div class="row">
+        {!! $map['html'] !!}
+    </div>
+    </div>
 
 
 @endsection
 
 @section('section2')
+
+
 
 @endsection

@@ -44,13 +44,13 @@
 
 
     {!! Form::label('id_zona', 'Zona') !!}
-    {!! Form::select('id_zona',[
-    '1'   =>  'Concepcion',
-    '2'   =>  'Collao',
-    '3'  =>  'Barrio Norte',
-    '4'   =>  'Hualpen',
-    '5'  =>  'Talcahuano',
-     ],'null', ['class'=>'form-control']) !!}
+
+    <select class="form-control" id="id_zona" name="id_zona">
+
+        @foreach(\App\Zona::all() as $zona)
+            <option value="{{$zona->id }}">{{$zona->nombre}}</option>
+        @endforeach
+    </select>
 
     <br>
     <div class="form-group">
