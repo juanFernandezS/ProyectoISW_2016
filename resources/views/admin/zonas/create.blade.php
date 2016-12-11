@@ -1,10 +1,5 @@
 @extends('admin.template.main')
 
-
-@section('titlepanel','Crear Cliente')
-
-
-
 @section('content')
 
     @if(count($errors) > 0)
@@ -20,8 +15,6 @@
 
 
     @endif
-
-@section('title','Ingresar Zona')
 
 {!!Form::open(['route' => 'admin.zonas.store' , 'method' => 'POST']) !!}
 

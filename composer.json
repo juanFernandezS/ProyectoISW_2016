@@ -10,7 +10,8 @@
         "laravelcollective/html": "5.2.*",
         "cviebrock/eloquent-sluggable": "^4.1",
         "laracasts/flash": "^2.0",
-        "barryvdh/laravel-debugbar": "^2.3"
+        "barryvdh/laravel-debugbar": "^2.3",
+        "genealabs/phpgmaps": "~0.3.0"
 
     },
     "require-dev": {
