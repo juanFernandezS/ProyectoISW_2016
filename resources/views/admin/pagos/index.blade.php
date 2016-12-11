@@ -20,7 +20,7 @@
                         <td> {!!$pago->tipo_pago !!}</td>
                         <td><a href=" {{ route('admin.pagos.edit', $pago->id) }} " class="btn btn-warning"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                             <a href=" {{ route('admin.pagos.show', $pago->id) }}" class="btn btn-danger" ><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
-               S     </tr>
+                    </tr>
 
 
                 @endforeach()
