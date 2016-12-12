@@ -12,7 +12,7 @@
         </div>
     @endif
 
-    @if(($id!='')AND() )
+    @if(($request->id!='')AND() )
     @endif
 
     <div class="form-group">

@@ -221,7 +221,7 @@ desired effect
             		</span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="{{URL::to('commonusers/oomanda')}}">Ver listado</a></li>
+                            <li><a href="{{URL::to('commonusers/comanda')}}">Ver listado</a></li>
                             <li><a href="{{URL::to('commonusers/comanda/create')}}">Crear nueva</a></li>
                             <li><a href="{{URL::to('commonusers/comanda')}}">Modificar datos</a></li>
                             <li><a href="{{URL::to('commonusers/comanda')}}">Eliminar comanda</a></li>

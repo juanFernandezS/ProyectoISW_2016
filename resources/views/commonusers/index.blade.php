@@ -7,6 +7,7 @@
 @section('content')
 
     <a href="{{route('commonusers.clientes.create')}}" class="btn btn-info">Nuevo Usuario</a>
+
     <br>
     <br>
     <div class="table-responsive">
