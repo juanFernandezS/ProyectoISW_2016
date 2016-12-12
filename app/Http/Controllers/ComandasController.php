@@ -5,26 +5,23 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Zona;
-use Laracasts\Flash\Flash;
 
-class ZonasController extends Controller
+class ComandasController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-
     public function index()
     {
-        $zona = Zona::orderBy('id','ASC')->paginate(10);
-        return view ('admin.zonas.index')->with('zona',$zona);
+        //
     }
 
     /**
@@ -34,7 +31,7 @@ class ZonasController extends Controller
      */
     public function create()
     {
-        return view('admin.zonas.create');
+        //
     }
 
     /**
@@ -45,11 +42,7 @@ class ZonasController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
-        $zona = new Zona($request->all());
-        $zona -> save();
-        Flash::success('Save Successfull');
-        return redirect()->route('admin.zonas.index');
+        //
     }
 
     /**
@@ -71,8 +64,7 @@ class ZonasController extends Controller
      */
     public function edit($id)
     {
-        $zona = Zona::find($id);
-        return view('admin.zonas.edit')->with('zona',$zona);
+        //
     }
 
     /**
@@ -84,13 +76,7 @@ class ZonasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $zona = Zona::find($id);
-        $zona->nombre = $request->nombre;
-        $zona->save();
-
-        Flash::success('Edit Success');
-
-        return redirect()->route('admin.zonas.index');
+        //
     }
 
     /**
@@ -101,11 +87,6 @@ class ZonasController extends Controller
      */
     public function destroy($id)
     {
-        $zona = Zona::find($id);
-        $zona->delete();
-
-        //Flash::danger('Erase Success');
-        Flash::error('Deleted');
-        return redirect()->route('admin.zonas.index');
+        //
     }
 }

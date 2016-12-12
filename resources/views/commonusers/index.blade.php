@@ -36,7 +36,7 @@
                             <span class=" glyphicon glyphicon-edit"></span>
                         </a>
                         <a href="{{route('commonusers.clientes.destroy',$item->id)}}"
-                           onclick="return confirm('Seguro?')"
+                           onclick="return confirm('desea Borrar a : {{$item->nombre}}')"
                            class="btn btn-danger">
 
                             <span class="glyphicon glyphicon-remove-sign"></span>

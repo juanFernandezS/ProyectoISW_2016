@@ -18,6 +18,12 @@ class ClientesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function index()
     {
         $cliente = Cliente::orderBy('id','DES')->paginate(10);
@@ -48,9 +54,12 @@ class ClientesController extends Controller
         $cliente = new Cliente($request->all());
         $cliente -> save();
         Flash::success('Save Successfull');
-        return redirect()->route('commonusers.clientes.index');
+        //return redirect()->route('commonusers.clientes.index');
+        return view ('commonusers.comanda.create')->with('cliente',$cliente);
 
     }
+
+
 
     /**
      * Display the specified resource.

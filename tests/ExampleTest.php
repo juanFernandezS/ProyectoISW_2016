@@ -13,6 +13,13 @@ class ExampleTest extends TestCase
      */
     public function testBasicExample()
     {
-
+        $this->visit('/auth/login')
+            ->type('12.345.678-9', 'rut')
+            ->type('admin', 'password')
+            ->press('Ok')
+            ->visit('/admin/zonas/create')
+            ->type('Talcahuano','nombre')
+            ->press('Registrar')
+            ->seePageIs('/admin/zonas');
     }
 }

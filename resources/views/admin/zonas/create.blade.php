@@ -29,9 +29,10 @@
 
 <br>
 <div class="form-group">
-    {!! Form::submit('Registar', ['class' => 'btn btn-primary']) !!}
+    {!! Form::submit('Registar',['class' => 'btn btn-primary','id'=>'Registrar','name'=>'Registrar','value'=>'Registrar']) !!}
 </div>
 
+    <a href="{{URL::to('admin/zonas')}}" class="btn btn-info" role="button">Volver</a>
 {!! Form::close() !!}
 
 
