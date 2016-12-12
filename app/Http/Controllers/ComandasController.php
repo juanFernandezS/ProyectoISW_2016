@@ -44,7 +44,10 @@ class ComandasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comanda=new Comanda($request->all());
+        $comanda->save();
+        Flash::success('La comanda a sido guardad exitosamante');
+        return redirect()->route('commonusers.comanda.index');
     }
 
     /**

@@ -16,14 +16,14 @@ class CoberturasControllerTest extends TestCase
     {
         //verifica si es posible entrar directamente a la ruta indicada
         $this->get(route('admin.coberturas.index'));
-        $this->seeStatusCode(500);
+        $this->seeStatusCode(302);
     }
 
     public function test_show_method_returns_a_particular_cobertura()
     {
         //verifica si se puede entrar directamente a la ruta indicada
         $this->get(route('admin.coberturas.show',1));
-        $this->seeStatusCode(500);
+        $this->seeStatusCode(302);
     }
 
     public function test_destroy_method_return_particular_cobertura()

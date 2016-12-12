@@ -1,5 +1,9 @@
+@extends('admin.template.main')
+
+@section('title','Guardar Comanda')
+
 @section('content')
-    {!! Form::open(['route' => 'commonusers.comandas.store', 'method' => 'POST']) !!}
+    {!! Form::open(['route' => 'commonusers.comanda.store', 'method' => 'POST']) !!}
 
     @if($errors->has())
         <div class="alert alert-danger">
@@ -12,22 +16,29 @@
         </div>
     @endif
 
-    @if(($request->id!='')AND() )
-    @endif
 
     <div class="form-group">
-        {!!Form::label('nombre','Nombre') !!}
-        {!!Form::text('nombre', null, ['class'=> 'form-control','id'=>'nombre','name'=>'nombre', 'placeholder' => 'Nombre de la cobertura', 'require']) !!}
+        {!!Form::label('Nota','Nota') !!}
+        {!!Form::text('Nota', null, ['class'=> 'form-control','id'=>'nota','name'=>'nota', 'placeholder' => 'Nota']) !!}
     </div>
 
     <div class="form-group">
-        {!!Form::label('precio','Precio($)') !!}
-        {!!Form::text('precio', null, ['class'=> 'form-control','id'=>'precio','name'=>'precio', 'placeholder' => '10000', 'require']) !!}
+        {!!Form::label('fecha','Fecha') !!}
+        {!!Form::text('fecha', null, ['class'=> 'form-control','id'=>'fecha','name'=>'fecha', 'value'=>date('now'),'placeholder' => date('now'), 'readonly'=>'true']) !!}
+    </div>
+
+    <div class="form-group">
+        {!!Form::label('id_pago','pago') !!}
+        <select class="form-control" id="id_pagos" name="id_pagos">
+            @foreach(\App\Pago::all() as $pagos)
+                <option value="{{$pagos->id }}">{{$pagos->nombre}}</option>
+            @endforeach
+        </select>
     </div>
 
     <div class="form-group">
         {!!Form::submit('registrar', ['class' => 'btn btn-success']) !!}
-        <a href="{{route('admin.coberturas.index') }} " class="btn btn-primary" role="button">Cancelar</a>
+        <a href="{{route('commonusers.comanda.index') }} " class="btn btn-primary" role="button">Cancelar</a>
     </div>
 
     {!! Form::close()!!}

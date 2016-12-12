@@ -24,11 +24,10 @@ class ClientesController extends Controller
     }
 
 
-    public function index()
+    public function index(Request $request)
     {
-        $cliente = Cliente::orderBy('id','DES')->paginate(10);
-        $zona = Zona::all();
-        return view ('commonusers.index')->with('cliente',$cliente)->with('zona',$zona);
+        $cliente = Cliente::search($request->telefono)->orderBy('id','DES')->paginate(10);
+        return view ('commonusers.index')->with('cliente',$cliente);
 
     }
 
@@ -54,8 +53,8 @@ class ClientesController extends Controller
         $cliente = new Cliente($request->all());
         $cliente -> save();
         Flash::success('Save Successfull');
-        //return redirect()->route('commonusers.clientes.index');
-        return view ('commonusers.comanda.create')->with('cliente',$cliente);
+        return redirect()->route('commonusers.clientes.index');
+        //return view ('commonusers.comanda.create')->with('cliente',$cliente);
 
     }
 

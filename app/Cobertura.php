@@ -12,4 +12,9 @@ class Cobertura extends Model
     public function productos(){
         return $this->hasMany('App\Producto','id,producto');
     }
+
+    public function scopeSearch($query, $nombre)
+    {
+        return $query->where('nombre', 'LIKE', "%$nombre%");
+    }
 }
