@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class EstadoTableSeeder extends Seeder
+class PagosTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,8 +11,8 @@ class EstadoTableSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('estados')->insert(array(
-            'nombre'  => 'Habilitado',
+        \DB::table('pagos')->insert(array(
+            'tipo_pago'  => 'efectivo',
             'created_at' => 'now',
             'updated_at' => 'now'
         ));

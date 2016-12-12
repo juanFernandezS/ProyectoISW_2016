@@ -1,12 +1,7 @@
-@extends('commonusers.template.main')
-
-@section('title','Zonas de Reparto: ')
-
-@section('titlepanel','Editar Zona: '.$zona->nombre)
+@extends('admin.template.main')
 
 
-
-@section('cliente-form')
+@section('content')
 
     @if($errors->has())
         <div class="alert alert-danger">
@@ -26,7 +21,7 @@
     {!! Form::text('nombre',$zona->nombre,['nombre' => 'form-control', 'placeholder' => 'Nombre' , 'required']) !!}
 
     <br>
-    <br>
+    <br><br>
 
     <div class="form-group">
         {!! Form::submit('Guardar', ['class' => 'btn btn-warning']) !!}

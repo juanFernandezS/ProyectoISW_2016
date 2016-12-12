@@ -7,7 +7,7 @@
                 <div class="panel-heading"></div>
 
                 <div class="panel-body">
-                    <b>BIENVENIDO AL SISTEMA GESTION DE COMADAS Y REPARTO SANTOKU-SUSHI</b>
+                    <h4><b>BIENVENIDO ****{{ Auth::user ()->nombre }}****, AL SISTEMA GESTION DE COMADAS Y REPARTO SANTOKU-SUSHI</b></h4>
                 </div>
         </div>
     </div>

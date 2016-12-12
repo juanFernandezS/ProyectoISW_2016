@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableEstadoPedido extends Migration
+class CreateTableEstadoComanda extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,9 @@ class CreateTableEstadoPedido extends Migration
      */
     public function up()
     {
-        Schema::create('estadoPedidos', function (Blueprint $table) {
-            $table->integer('id');
+        Schema::create('estado_comanda', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('estado');
-            $table->foreign('id')->references('id')->on('comandas');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ class CreateTableEstadoPedido extends Migration
      */
     public function down()
     {
-        Schema::drop('estadoPedidos');
+        Schema::drop('estado_comanda');
     }
 }

@@ -9,6 +9,7 @@ use App\Cliente;
 use Laracasts\Flash\Flash;
 use Symfony\Component\HttpKernel\Client;
 use App\Http\Requests\ClienteRequest;
+use App\Zona;
 
 class ClientesController extends Controller
 {
@@ -20,7 +21,8 @@ class ClientesController extends Controller
     public function index()
     {
         $cliente = Cliente::orderBy('id','DES')->paginate(10);
-        return view ('commonusers.index')->with('cliente',$cliente);
+        $zona = Zona::all();
+        return view ('commonusers.index')->with('cliente',$cliente)->with('zona',$zona);
 
     }
 
@@ -31,6 +33,7 @@ class ClientesController extends Controller
      */
     public function create()
     {
+
         return view('commonusers.create');
     }
 
@@ -42,7 +45,6 @@ class ClientesController extends Controller
      */
     public function store(ClienteRequest $request)
     {
-        //dd($request->all());
         $cliente = new Cliente($request->all());
         $cliente -> save();
         Flash::success('Save Successfull');
@@ -70,9 +72,35 @@ class ClientesController extends Controller
     public function edit($id)
     {
         $cliente = Cliente::find($id);
+        $zona = Zona::find($cliente->id_zona);
+        $apiKey = 'AIzaSyCh9sMgLZE0vIuWvT-YZ1E1NWHu3ckjSEI';
 
-        //dd($id);
-        return view ('commonusers.clientes.edit')->with('cliente',$cliente);
+        $addres = $cliente->direccion." ".$zona->nombre;
+        $config = array();
+        $config['center'] = $addres;
+        $config['directions'] = TRUE;
+        $config['apiKey'] = $apiKey;
+        $config['directionsDivID'] = 'directionsDiv';
+        $config['map_width'] = 600;
+        $config['map_height'] = 400;
+        $config['zoom'] = 15;
+        $config['onboundschanged'] = 'if (!centreGot) {
+          var mapCentre = map.getCenter();
+          marker_0.setOptions({
+              position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng())
+
+          });
+      }
+      centreGot = true;';
+
+        \Gmaps::initialize($config);
+        // Colocar el marcador
+        // Una vez se conozca la posición del usuario
+        $marker = array();
+        \Gmaps::add_marker($marker);
+        $map = \Gmaps::create_map();
+
+       return view ('commonusers.clientes.edit',compact('map'))->with('cliente',$cliente);
 
     }
 
@@ -92,7 +120,7 @@ class ClientesController extends Controller
         $cliente->id_zona = $request->id_zona;
         $cliente->save();
 
-        Flash::success('Edit Success');
+        Flash::success('Editado con exito');
 
         return redirect()->route('commonusers.clientes.index');
     }
@@ -107,8 +135,6 @@ class ClientesController extends Controller
     {
         $cliente = Cliente::find($id);
         $cliente->delete();
-
-        //Flash::danger('Erase Success');
         Flash::error('Success');
         return redirect()->route('commonusers.clientes.index');
     }

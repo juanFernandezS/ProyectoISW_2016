@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('direccion');
             $table->enum('tipo_de_usuario',['administrador','cajero','repartidor'])->defaul('cajero','repartidor');
             $table->integer('id_estado');
-            $table->foreign('id_estado')->references('id')->on('estados');
+            $table->foreign('id_estado')->references('id')->on('estados')->onDelete('cascade');
             $table->string('password');
 
 
