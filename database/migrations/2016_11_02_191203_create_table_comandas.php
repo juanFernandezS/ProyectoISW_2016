@@ -14,7 +14,6 @@ class CreateTableComandas extends Migration
     {
         Schema::create('comandas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('telefono');
             $table->text('nota');
             $table->date('fecha');
             $table->integer('id_user')->unsigned();

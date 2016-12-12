@@ -4,22 +4,25 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ExampleTest extends TestCase
+class LoginTest extends TestCase
 {
     /**
-     * A basic functional test example.
-     *
+     * A basic test example.
+     * @test
      * @return void
      */
-    public function testBasicExample()
-    {
+
+    public function pagosCreate(){
         $this->visit('/auth/login')
             ->type('12.345.678-9', 'rut')
             ->type('admin', 'password')
             ->press('Ok')
-            ->visit('/admin/zonas/create')
-            ->type('Talcahuano','nombre')
-            ->press('Registrar')
-            ->seePageIs('/admin/zonas');
+
+            //agregar
+
+            ->visit('/admin/pagos/create')
+            ->type('redCompra','tipo_pago')
+            ->press('registrar')
+            ->seePageIs('/admin/pagos');
     }
 }

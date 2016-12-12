@@ -55,6 +55,7 @@
     <br>
     <div class="form-group">
         {!! Form::submit('Registar', ['class' => 'btn btn-primary']) !!}
+        <a href="{{URL::to('commonusers/comandas/create')}}" class="btn btn-info" role="button">Crear Comanda</a>
     </div>
 
     {!! Form::close() !!}

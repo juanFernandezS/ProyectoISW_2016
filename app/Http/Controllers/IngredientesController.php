@@ -10,6 +10,11 @@ use Laracasts\Flash\Flash;
 class IngredientesController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
         $ingredientes=Ingrediente::orderBy('id','ASC')->paginate(20);
         return view('admin.ingredientes.index')->with('ingredientes',$ingredientes);
@@ -19,7 +24,7 @@ class IngredientesController extends Controller
         return view('admin.ingredientes.create');
         $validacion = Validator::make($input,$rules);
         if($validacion->fails()){
-            Flash::warning('El ingrediente '. $ingredientes->nombre. ' a sido editado con exito!');
+            Flash::warning('El ingrediente '. $ingredientes->nombre. ' ha sido editado con exito!');
             return redirect()->to('admin.ingredientes.create\'')->withInput()->withErrors($validacion->messages());
         }
     }

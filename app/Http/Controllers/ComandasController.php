@@ -5,27 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Zona;
-use Laracasts\Flash\Flash;
-use App\Http\Requests\ZonaRequest;
+use App\Comanda;
 
-class ZonasController extends Controller
+class ComandasController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-
     public function index()
     {
-        $zona = Zona::orderBy('id','ASC')->paginate(10);
-        return view ('admin.zonas.index')->with('zona',$zona);
+        $comandas= Comanda::orderBy('id','ASC')->paginate(8);
+        return view('commonusers.comanda.index')->with('comandas', $comandas);
     }
 
     /**
@@ -33,9 +31,9 @@ class ZonasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('admin.zonas.create');
+        return view('commonusers.comanda.create',$request);
     }
 
     /**
@@ -44,13 +42,12 @@ class ZonasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ZonaRequest $request)
+    public function store(Request $request)
     {
-        //dd($request->all());
-        $zona = new Zona($request->all());
-        $zona -> save();
-        Flash::success('Save Successfull');
-        return redirect()->route('admin.zonas.index');
+        $comanda=new Comanda($request->all());
+        $comanda->save();
+        Flash::success('La comanda a sido guardad exitosamante');
+        return redirect()->route('commonusers.comanda.index');
     }
 
     /**
@@ -72,8 +69,7 @@ class ZonasController extends Controller
      */
     public function edit($id)
     {
-        $zona = Zona::find($id);
-        return view('admin.zonas.edit')->with('zona',$zona);
+        //
     }
 
     /**
@@ -83,15 +79,9 @@ class ZonasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ZonaRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $zona = Zona::find($id);
-        $zona->nombre = $request->nombre;
-        $zona->save();
-
-        Flash::success('Editado con Exito');
-
-        return redirect()->route('admin.zonas.index');
+        //
     }
 
     /**
@@ -102,11 +92,6 @@ class ZonasController extends Controller
      */
     public function destroy($id)
     {
-        $zona = Zona::find($id);
-        $zona->delete();
-
-        //Flash::danger('Erase Success');
-        Flash::error('Deleted');
-        return redirect()->route('admin.zonas.index');
+        //
     }
 }

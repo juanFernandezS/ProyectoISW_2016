@@ -6,7 +6,18 @@
 @section('titlepanel','Lista de Clientes')
 @section('content')
 
-    <a href="{{route('commonusers.clientes.create')}}" class="btn btn-info">Nuevo Usuario</a>
+    <a href="{{route('commonusers.clientes.create')}}" class="btn btn-info">Nuevo Cliente</a>
+    <!---Buscador de Clientes-->
+        {!! Form::open(['route'=>'commonusers.clientes.index', 'method'=> 'GET', 'class'=>'navbar-form  pull-right']) !!}
+            <div class="input-group">
+                <input type="text" name="telefono"   class="form-control" placeholder="Buscar Cliente...">
+                <span class="input-group-btn">
+                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                        </button>
+                      </span>
+            </div>
+        {!! Form::close() !!}
+    <!---Fin del buscador--->
     <br>
     <br>
     <div class="table-responsive">
@@ -36,10 +47,14 @@
                             <span class=" glyphicon glyphicon-edit"></span>
                         </a>
                         <a href="{{route('commonusers.clientes.destroy',$item->id)}}"
-                           onclick="return confirm('Seguro?')"
+                           onclick="return confirm('desea Borrar a : {{$item->nombre}}')"
                            class="btn btn-danger">
 
                             <span class="glyphicon glyphicon-remove-sign"></span>
+                        </a>
+                        <a href="{{route('commonusers.comanda.create',$item->id)}}"
+                           class="btn btn-info">
+                            <span class=" glyphicon glyphicon-lock"></span>
                         </a>
                     </td>
                 </tr>

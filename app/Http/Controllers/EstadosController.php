@@ -11,6 +11,11 @@ use Laracasts\Flash\Flash;
 class EstadosController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $estados= Estado::orderBy('id','ASC')->paginate(5);
@@ -29,11 +34,11 @@ class EstadosController extends Controller
             'nombre'=>'required |unique:estados,nombre|max:400',
 
         ]);
-        $estados = new Estado($request->all());
-        $estados->nombre=$request->nombre;
-        $estados->save();
+        $estado = new Estado($request->all());
+        $estado->nombre=$request->nombre;
+        $estado->save();
 
-        Flash::success('El estado '. $estados->nombre .' se a ingresado con exito');
+        Flash::success('El estado '. $estado->nombre .' se a ingresado con exito');
         return redirect()->route('admin.estados.index');
     }
 

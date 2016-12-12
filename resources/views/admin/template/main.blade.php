@@ -120,7 +120,7 @@ desired effect
                 <!-- Optionally, you can add icons to the links -->
                 <!--li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li-->
 
-                @if(Auth::user()->tipo_de_usuario == 'administrador')
+                @if(  Auth::user()->tipo_de_usuario == 'administrador')
                 <li class="header">Adminstrar</li>
                 <li class="treeview">
                     <a href="#"><i class="fa fa-folder"></i> <span>Usuarios</span>
@@ -213,7 +213,7 @@ desired effect
                 </li>
                 @endif
 
-                @if(Auth::user()->tipo_de_usuario == 'administrador' OR Auth::user()->tipo_de_usuario == 'cajero')
+                @if(  (Auth::user()->tipo_de_usuario == 'administrador' OR Auth::user()->tipo_de_usuario == 'cajero' OR Auth::user()->tipo_de_usuario == 'repartidor'))
                     <li class="treeview">
                         <a href="#"><i class="fa fa-folder"></i> <span>Comanda</span>
                             <span class="pull-right-container">
@@ -221,10 +221,10 @@ desired effect
             		</span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="{{URL::to('#')}}">Ver listado</a></li>
-                            <li><a href="{{URL::to('#')}}">Crear nueva</a></li>
-                            <li><a href="{{URL::to('#')}}">Modificar datos</a></li>
-                            <li><a href="{{URL::to('#')}}">Eliminar cliente</a></li>
+                            <li><a href="{{URL::to('commonusers/comanda')}}">Ver listado</a></li>
+                            <li><a href="{{URL::to('commonusers/comanda/create')}}">Crear nueva</a></li>
+                            <li><a href="{{URL::to('commonusers/comanda')}}">Modificar datos</a></li>
+                            <li><a href="{{URL::to('commonusers/comanda')}}">Eliminar comanda</a></li>
                         </ul>
                     </li>
 
@@ -243,11 +243,11 @@ desired effect
                 </li>
                 @endif
 
-                @if(Auth::user()->tipo_de_usuario == 'administrador' OR Auth::user()->tipo_de_usuario == 'cajero')
+                @if(  (Auth::user()->tipo_de_usuario == 'administrador' OR Auth::user()->tipo_de_usuario == 'cajero'))
                 <li class="header">Informes</li>
                 <li class="treeview"><a href="#"><i class="fa fa-file-pdf-o"></i> <span>Resumen ventas del dia</span></a></li>
                 @endif
-                @if(Auth::user()->tipo_de_usuario == 'administrador')
+                @if(  Auth::user()->tipo_de_usuario == 'administrador')
                 <li class="treeview"><a href="{{URL::to('admin/informes/historialPrecios')}}"><i class="fa fa-file-pdf-o"></i> <span>Historial de precios</span></a></li>
                 @endif
             </ul>

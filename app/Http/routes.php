@@ -12,6 +12,13 @@
             'as'    => 'commonusers.clientes.destroy'
         ]);
 
+        Route::resource('comanda','ComandasController');
+
+        Route::get('comanda/{id}/destroy',[
+            'uses'  => 'ComandasController@destroy',
+            'as'    => 'commonusers.comanda.destroy'
+        ]);
+
     });
 
     Route::group(['prefix' => 'admin'],function(){
@@ -95,14 +102,6 @@ Route::post('auth/login','Auth\AuthController@postLogin');
 Route::get('auth/logout','Auth\AuthController@logout');
 
 
-/*Route::group(['prefix' => 'repa'],function(){
-    Route::resource('estadoPedidos','EstadoController');
-
-    Route::get('estadoPedidos/{id}/destroy',[
-        'uses' => 'EstadoController@destroy',
-        'as' =>'repa.estadoPedidos.destroy']);
-
-    Route::get('estadoPedidos/{id}/show',[
-        'uses' => 'EstadoController@show',
-        'as' =>'repa.estadoPedidos.show']);
-});*/
+Route::group(['prefix' => 'repartidor'],function(){
+    Route::resource('EstadoComanda','EstadoComandaController');
+});
