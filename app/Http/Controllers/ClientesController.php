@@ -54,6 +54,7 @@ class ClientesController extends Controller
         $cliente -> save();
         Flash::success('Save Successfull');
         //return redirect()->route('commonusers.clientes.index');
+        
         return view ('commonusers.comanda.create')->with('cliente',$cliente);
 
     }
