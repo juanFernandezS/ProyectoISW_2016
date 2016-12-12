@@ -10,6 +10,11 @@ use Laracasts\Flash\Flash;
 class IngredientesController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
         $ingredientes=Ingrediente::orderBy('id','ASC')->paginate(20);
         return view('admin.ingredientes.index')->with('ingredientes',$ingredientes);
