@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Comanda;
 
 class ComandasController extends Controller
 {
@@ -21,7 +22,8 @@ class ComandasController extends Controller
 
     public function index()
     {
-        //
+        $comandas= Comanda::orderBy('id','ASC')->paginate(8);
+        return view('commonusers.comanda.index')->with('comandas', $comandas);
     }
 
     /**
@@ -29,9 +31,9 @@ class ComandasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        return view('commonusers.comanda.create',$request);
     }
 
     /**
@@ -42,7 +44,10 @@ class ComandasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comanda=new Comanda($request->all());
+        $comanda->save();
+        Flash::success('La comanda a sido guardad exitosamante');
+        return redirect()->route('commonusers.comanda.index');
     }
 
     /**

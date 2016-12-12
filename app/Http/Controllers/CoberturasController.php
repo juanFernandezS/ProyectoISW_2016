@@ -157,8 +157,8 @@ class CoberturasController extends Controller
         return redirect()->route('admin.coberturas.index');
     }
 
-    public function mostrarHistorial(){
-        $coberturas= Cobertura::orderBy('nombre','ASC')->paginate(5);
+    public function mostrarHistorial(Request $request){
+        $coberturas= Cobertura::search($request->nombre)->orderBy('nombre','ASC')->paginate(5);
         return view('admin.informes/historialPrecios')->with('coberturas', $coberturas);
     }
 }

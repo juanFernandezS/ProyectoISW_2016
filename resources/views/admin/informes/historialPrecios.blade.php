@@ -4,6 +4,17 @@
 
 @section('content')
     <h4><b>Historial de Precios</b></h4>
+    <!---Buscador de Clientes-->
+    {!! Form::open(['route'=>'admin.historial.historialPrecios', 'method'=> 'GET', 'class'=>'navbar-form  pull-right']) !!}
+    <div class="input-group">
+        <input type="text" name="nombre" class="form-control" placeholder="Buscar Historial...">
+        <span class="input-group-btn">
+                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                        </button>
+                      </span>
+    </div>
+    {!! Form::close() !!}
+    <!---Fin del buscador--->
     <table class="table" table-striped>
         <thead>
         <th>ID</th>

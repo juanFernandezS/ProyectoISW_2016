@@ -12,6 +12,13 @@
             'as'    => 'commonusers.clientes.destroy'
         ]);
 
+        Route::resource('comanda','ComandasController');
+
+        Route::get('comanda/{id}/destroy',[
+            'uses'  => 'ComandasController@destroy',
+            'as'    => 'commonusers.comanda.destroy'
+        ]);
+
     });
 
     Route::group(['prefix' => 'admin'],function(){

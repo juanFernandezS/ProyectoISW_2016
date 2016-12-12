@@ -213,7 +213,7 @@ desired effect
                 </li>
                 @endif
 
-                @if(  (Auth::user()->tipo_de_usuario == 'administrador' OR Auth::user()->tipo_de_usuario == 'cajero'))
+                @if(  (Auth::user()->tipo_de_usuario == 'administrador' OR Auth::user()->tipo_de_usuario == 'cajero' OR Auth::user()->tipo_de_usuario == 'repartidor'))
                     <li class="treeview">
                         <a href="#"><i class="fa fa-folder"></i> <span>Comanda</span>
                             <span class="pull-right-container">
@@ -221,10 +221,10 @@ desired effect
             		</span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="{{URL::to('#')}}">Ver listado</a></li>
-                            <li><a href="{{URL::to('#')}}">Crear nueva</a></li>
-                            <li><a href="{{URL::to('#')}}">Modificar datos</a></li>
-                            <li><a href="{{URL::to('#')}}">Eliminar cliente</a></li>
+                            <li><a href="{{URL::to('commonusers/comanda')}}">Ver listado</a></li>
+                            <li><a href="{{URL::to('commonusers/comanda/create')}}">Crear nueva</a></li>
+                            <li><a href="{{URL::to('commonusers/comanda')}}">Modificar datos</a></li>
+                            <li><a href="{{URL::to('commonusers/comanda')}}">Eliminar comanda</a></li>
                         </ul>
                     </li>
 

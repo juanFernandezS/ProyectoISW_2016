@@ -17,4 +17,9 @@ class Cliente extends Model
     public function comandas(){
         return $this->hasMany('App\Comanda','id_comanda');
     }
+
+    public function scopeSearch($query, $telefono)
+    {
+        return $query->where('telefono', 'LIKE', "%$telefono%");
+    }
 }
