@@ -13,4 +13,8 @@ class Cliente extends Model
 
         return $this->belongsTo('App\Zona','id_zona');
     }
+
+    public function comandas(){
+        return $this->hasMany('App\Comanda','id_comanda');
+    }
 }

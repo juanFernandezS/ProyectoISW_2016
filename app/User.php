@@ -16,8 +16,11 @@ class User extends Authenticatable
     ];
 
     public function estado(){
-
         return $this->belongsTo('App\Estado','id_estado');
+    }
+
+    public function comandas(){
+        return $this->hasMany('App\Comanda','id_comanda');
     }
 
 }

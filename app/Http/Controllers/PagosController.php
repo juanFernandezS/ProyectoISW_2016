@@ -10,6 +10,11 @@ use Laracasts\Flash\Flash;
 class PagosController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $pagos=Pago::orderBy('id','ASC')->paginate(20);

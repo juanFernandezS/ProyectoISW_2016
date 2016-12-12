@@ -11,6 +11,11 @@ use Laracasts\Flash\Flash;
 class EstadosController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $estados= Estado::orderBy('id','ASC')->paginate(5);

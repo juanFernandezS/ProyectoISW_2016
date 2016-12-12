@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableHistoriales extends Migration
+class CreateTableEstadoComanda extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,9 @@ class CreateTableHistoriales extends Migration
      */
     public function up()
     {
-        Schema::create('historiales', function (Blueprint $table) {
+        Schema::create('estado_comanda', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_cob');
-            $table->string('detalles');
-            $table->foreign('id_cob')->references('id')->on('coberturas');
+            $table->string('estado');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ class CreateTableHistoriales extends Migration
      */
     public function down()
     {
-        Schema::drop('historiales');
+        Schema::drop('estado_comanda');
     }
 }
