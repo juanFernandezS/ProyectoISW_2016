@@ -24,7 +24,7 @@ class IngredientesController extends Controller
         return view('admin.ingredientes.create');
         $validacion = Validator::make($input,$rules);
         if($validacion->fails()){
-            Flash::warning('El ingrediente '. $ingredientes->nombre. ' a sido editado con exito!');
+            Flash::warning('El ingrediente '. $ingredientes->nombre. ' ha sido editado con exito!');
             return redirect()->to('admin.ingredientes.create\'')->withInput()->withErrors($validacion->messages());
         }
     }

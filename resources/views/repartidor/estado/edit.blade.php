@@ -4,7 +4,7 @@
 
 @section('content')
 
-    {!! Form::model($estados,['route' => ['repartidor.estado.update',$estados],'method' =>'PUT']) !!}
+    {!! Form::model($estados,['route' => ['repartidor.EstadoComanda.update',$estados],'method' =>'PUT']) !!}
     @if($errors->has())
         <div class="alert alert-danger">
             <ul>
@@ -24,7 +24,7 @@
     <div class="form-group">
         {!! Form::submit('Editar',['class' => 'btn btn-primary'])!!}
         {!! Form::close() !!}
-        <a href="{{route('repartidor.estado.index') }} " class="btn btn-primary" role="button">Cancelar</a>
+        <a href="{{route('repartidor.EstadoComanda.index') }} " class="btn btn-primary" role="button">Cancelar</a>
 
     </div>
 @endsection

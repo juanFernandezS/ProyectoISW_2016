@@ -1,22 +1,22 @@
 @extends('admin.template.main')
 
-@section('titulo', 'eliminar estado usuario'. $estado->nombre)
+@section('titulo', 'eliminar estado usuario'. $estado->estado)
 
 @section('content')
-    {!! Form::open(['route' => ['admin.estados.destroy', $estado], 'method' => 'GET']) !!}
+    {!! Form::open(['route' => ['repartidor.EstadoComanda.destroy', $estado], 'method' => 'GET']) !!}
 
-    {!! Form::label('Estado de usuario a eliminar') !!}
+    {!! Form::label('Estado de entrega a eliminar') !!}
 
 
     <div class="form-group">
-        {!!Form::label('nombre','Nombre') !!}
-        {!!Form::label('nombre', $estado->nombre) !!}
+        {!!Form::label('estado','Estado Comanda') !!}
+        {!!Form::label('estado', $estado->estado) !!}
     </div>
 
 
     <div class="form-group">
         {!!Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
-        <a href="{{route('admin.estados.index') }} " class="btn btn-primary" role="button">Cancelar</a>
+        <a href="{{route('repartidor.EstadoComanda.index') }} " class="btn btn-primary" role="button">Cancelar</a>
     </div>
 
     {!! Form::close()!!}
