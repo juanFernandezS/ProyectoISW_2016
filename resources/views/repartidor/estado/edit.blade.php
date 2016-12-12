@@ -4,7 +4,7 @@
 
 @section('content')
 
-    {!! Form::model($estados,['route' => ['repartidor.EstadoComanda.update',$estados],'method' =>'PUT']) !!}
+    {!! Form::model($estados,['route' => ['repartidor.EstadoComanda.update',$estado_comanda],'method' =>'PUT']) !!}
     @if($errors->has())
         <div class="alert alert-danger">
             <ul>
@@ -18,7 +18,7 @@
     <div class="form-group">
         {!! Form::label('estado','Estado comanda') !!}
 
-        {!! Form::text('estado',null,['class' =>'form-control','placeholder'=>'Ingresar estado comanda']) !!}
+        {!! Form::text('estado',$estado_comanda->estado,['class' =>'form-control','placeholder'=>'Ingresar estado comanda']) !!}
     </div>
 
     <div class="form-group">
