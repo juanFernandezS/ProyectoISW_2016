@@ -227,6 +227,16 @@ desired effect
                             <li><a href="{{URL::to('commonusers/comanda')}}">Eliminar comanda</a></li>
                         </ul>
                     </li>
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-folder"></i> <span>Estado Comanda</span>
+                            <span class="pull-right-container">
+            	  	<i class="fa fa-angle-left pull-right"></i>
+            		</span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{URL::to('repartidor/EstadoComanda')}}">Ver listado</a></li>
+                        </ul>
+                    </li>
 
                 <li class="treeview">
                     <a href="#"><i class="fa fa-folder"></i> <span>Datos clientes</span>
@@ -242,6 +252,7 @@ desired effect
                         </ul>
                 </li>
                 @endif
+
 
                 @if(  (Auth::user()->tipo_de_usuario == 'administrador' OR Auth::user()->tipo_de_usuario == 'cajero'))
                 <li class="header">Informes</li>
