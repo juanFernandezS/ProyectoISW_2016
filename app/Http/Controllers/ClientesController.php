@@ -28,7 +28,7 @@ class ClientesController extends Controller
     {
         $cliente = Cliente::orderBy('id','DES')->paginate(10);
         $zona = Zona::all();
-        return view ('commonusers.index')->with('cliente',$cliente)->with('zona',$zona);
+        return view ('commonusers.index')->with('cliente',$cliente);
 
     }
 
