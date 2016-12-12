@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Comanda extends Model
 {
     protected $table= "comandas";
-    protected $fillable=['id','telefono','nota','fecha','id_user','id_estado_comanda','id_cliente','id_pago'];
+    protected $fillable=['id','nota','fecha','id_user','id_estado_comanda','id_cliente','id_pago'];
 
     public function cliente(){
         return $this->belongsTo('App\Cliente','id_cliente');
