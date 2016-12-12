@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Zona;
 use Laracasts\Flash\Flash;
+use App\Http\Requests\ZonaRequest;
 
 class ZonasController extends Controller
 {
@@ -43,7 +44,7 @@ class ZonasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ZonaRequest $request)
     {
         //dd($request->all());
         $zona = new Zona($request->all());
@@ -82,13 +83,13 @@ class ZonasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ZonaRequest $request, $id)
     {
         $zona = Zona::find($id);
         $zona->nombre = $request->nombre;
         $zona->save();
 
-        Flash::success('Edit Success');
+        Flash::success('Editado con Exito');
 
         return redirect()->route('admin.zonas.index');
     }
