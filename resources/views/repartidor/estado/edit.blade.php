@@ -1,10 +1,10 @@
 @extends('admin.template.main')
 
-@section('titulo','Editar Estaods')
+@section('titulo','Editar Estado Comanda')
 
 @section('content')
 
-    {!! Form::model($estados,['route' => ['admin.estados.update',$estados],'method' =>'PUT']) !!}
+    {!! Form::model($estados,['route' => ['repartidor.estado.update',$estados],'method' =>'PUT']) !!}
     @if($errors->has())
         <div class="alert alert-danger">
             <ul>
@@ -16,15 +16,15 @@
         </div>
     @endif
     <div class="form-group">
-        {!! Form::label('nombre','Nombre estado') !!}
+        {!! Form::label('estado','Estado comanda') !!}
 
-        {!! Form::text('nombre',null,['class' =>'form-control','placeholder'=>'Ingresar nombre']) !!}
+        {!! Form::text('estado',null,['class' =>'form-control','placeholder'=>'Ingresar estado comanda']) !!}
     </div>
 
     <div class="form-group">
         {!! Form::submit('Editar',['class' => 'btn btn-primary'])!!}
         {!! Form::close() !!}
-        <a href="{{route('admin.estados.index') }} " class="btn btn-primary" role="button">Cancelar</a>
+        <a href="{{route('repartidor.estado.index') }} " class="btn btn-primary" role="button">Cancelar</a>
 
     </div>
 @endsection
