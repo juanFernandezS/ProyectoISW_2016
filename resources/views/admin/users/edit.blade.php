@@ -41,7 +41,8 @@
         {!! Form::text('direccion', null,['class' => 'form-control','placeholder' => ''] ) !!}
     </div>
 
-    <div>
+    <div class="form-group">
+        {!! Form::label('estado','Estado') !!}
     {!! Form::select('id_estado',[
        '1'   =>  'Habilitado',
        '2'   =>  'No habilitado',
@@ -50,14 +51,13 @@
         ],$user->id_estado, ['class'=>'form-control']) !!}
 </div>
 
+
     <div class="form-group">
         {!! Form::label('tipos_de_usarios','Tipo') !!}
         {!! Form:: select('tipos_de_usuarios',[''=>'Seleccione un tipo','administrador'=>'adminstrador','cajero'=>'cajero','repartidor'=>'repartidor'])!!}
-        &nbsp;
-
-
 
     </div>
+
 
 
     <div class="form-group">
