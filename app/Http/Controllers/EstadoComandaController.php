@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Mockery\CountValidator\Exception;
+use Laracasts\Flash\Flash;
+
 
 class EstadoComandaController extends Controller
 {
@@ -15,6 +17,7 @@ class EstadoComandaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    private $path='';
     public function index()
     {
         $data=Estado_comanda::all(); //enviamos esos registros a la vista
@@ -72,7 +75,7 @@ class EstadoComandaController extends Controller
      */
     public function edit($id)
     {
-        $data=Estado_comanda::findOrFail($id);
+        $data=Estado_comanda::find($id);
         return view('repartidor.estado.edit')->with('data',$data);
     }
 
@@ -85,7 +88,7 @@ class EstadoComandaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $estado= Estado_comanda::findOrFail($id);
+        $estado= Estado_comanda::find($id);
         $estado->estado = $request->estado;
         $estado->save();
         return redirect()->route('repartidor.EstadoComanda.index');
@@ -100,13 +103,13 @@ class EstadoComandaController extends Controller
      */
     public function destroy($id)
     {
-       try{
-           $estado=Estado_comanda::findOrFail($id);
-           $estado->delete();
-           return redirect()->route('repartidor.EstadoComanda.index');
+        $estado = Estado_comanda::find($id);
+        $estado->delete();
 
-       }catch(Exception $e){
-           return "FATAL ERROR -".$e->getMessage();
-       }
+        //Flash::danger('Erase Success');
+        Flash::error('Deleted');
+        return redirect()->route('repartidor.EstadoComanda.index');
     }
+
+
 }

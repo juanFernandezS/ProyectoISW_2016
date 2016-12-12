@@ -104,4 +104,10 @@ Route::get('auth/logout','Auth\AuthController@logout');
 
 Route::group(['prefix' => 'repartidor'],function(){
     Route::resource('EstadoComanda','EstadoComandaController');
+    Route::get('repartidor/{id}/destroy',[
+        'uses'  => 'EstadoComandaController@destroy',
+        'as'    => 'repartidor.EstadoComanda.destroy'
+    ]);
 });
+
+

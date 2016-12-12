@@ -4,7 +4,7 @@
 
 @section('content')
 
-    {!! Form::model($estados,['route' => ['repartidor.EstadoComanda.update',$estados],'method' =>'PUT']) !!}
+    {!! Form::model($data,['route' => ['repartidor.EstadoComanda.update',$data],'method' =>'PUT']) !!}
     @if($errors->has())
         <div class="alert alert-danger">
             <ul>

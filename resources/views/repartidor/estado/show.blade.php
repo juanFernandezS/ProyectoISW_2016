@@ -3,7 +3,7 @@
 @section('titulo', 'eliminar estado usuario'. $estado->estado)
 
 @section('content')
-    {!! Form::open(['route' => ['repartidor.EstadoComanda.destroy', $estado], 'method' => 'GET']) !!}
+    {!! Form::open(['route' => ['repartidor.EstadoComanda.destroy', $estado], 'method' => 'PUT']) !!}
 
     {!! Form::label('Estado de entrega a eliminar') !!}
 
