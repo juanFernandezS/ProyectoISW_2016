@@ -24,7 +24,7 @@ class EstadoTableSeeder extends Seeder
         ));
 
         \DB::table('estados')->insert(array(
-            'nombre'  => 'Con lisencia',
+            'nombre'  => 'Con licencia',
             'created_at' => 'now',
             'updated_at' => 'now'
         ));
